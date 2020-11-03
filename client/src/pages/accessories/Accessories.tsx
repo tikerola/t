@@ -1,14 +1,17 @@
 import React, { useState } from "react";
+import { Spinner } from "../../components/spinner/Spinner";
 import { useRequestData } from "../../hooks/useRequestData";
 import { ProductCategory } from "../common/ProductCategory";
 
 export const Accessories = (): JSX.Element => {
   const [page, setPage] = useState(1);
 
-  const [productData] = useRequestData({
+  const { productData, numOfProducts } = useRequestData({
     url: `/products/accessories/${page}`,
     dependency: page,
   });
+
+  if (!productData.length) return <Spinner />;
 
   return (
     <ProductCategory
@@ -16,6 +19,7 @@ export const Accessories = (): JSX.Element => {
       page={page}
       setPage={setPage}
       productData={productData}
+      numOfProducts={numOfProducts}
     />
   );
 };

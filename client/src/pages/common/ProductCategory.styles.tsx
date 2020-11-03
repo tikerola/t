@@ -20,6 +20,8 @@ export const ButtonContainer = styled.div`
   width: 40%;
   justify-content: space-between;
   margin: 15px auto;
+  background-color: #333;
+  border-radius: 8px;
 `;
 
 export const Button = styled.div`
@@ -30,6 +32,8 @@ export const Button = styled.div`
   align-items: center;
   justify-content: center;
   border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
 
   &:hover {
     color: ${(props) => props.theme.button.bgHoverColor};
@@ -40,4 +44,5 @@ export const PageNumberText = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #fff;
 `;

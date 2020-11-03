@@ -22,12 +22,14 @@ export interface ResponseData {
 
 export const useRequestData = ({ url, dependency }: HookProps) => {
   const [productData, setProductData] = useState<Item[]>([]);
+  const [numOfProducts, setNumOfProducts] = useState(0);
 
   useEffect(() => {
     const getCategory = async () => {
       try {
         const { data } = await axios["get"]<ResponseData>(url);
         setProductData(data.items);
+        setNumOfProducts(data.numOfItems);
       } catch (error) {
         console.log(error);
       }
@@ -36,5 +38,5 @@ export const useRequestData = ({ url, dependency }: HookProps) => {
     getCategory();
   }, [dependency]);
 
-  return [productData];
+  return { productData, numOfProducts };
 };

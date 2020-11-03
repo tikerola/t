@@ -13,6 +13,7 @@ interface IProps {
   page: number;
   setPage: Dispatch<SetStateAction<number>>;
   productData: Item[];
+  numOfProducts: number;
 }
 
 export const ProductCategory = ({
@@ -20,21 +21,35 @@ export const ProductCategory = ({
   page,
   setPage,
   productData,
+  numOfProducts,
 }: IProps): JSX.Element => {
+  const handlePageChange = (direction: string): void => {
+    if (direction === "previous" && page > 1)
+      setPage((prevPage) => prevPage - 1);
+    else if (direction === "next" && getPaginationEnd() < numOfProducts)
+      setPage((prevPage) => prevPage + 1);
+  };
+
+  const getPaginationStart = (): number => {
+    return (page - 1) * 10 + 1;
+  };
+
+  const getPaginationEnd = (): number => {
+    return (page - 1) * 10 + 10;
+  };
+
   return (
     <div>
       <Title>{title}</Title>
       {renderProductData(productData)}
       <ButtonContainer>
-        <Button onClick={() => setPage((prevPage) => prevPage - 1)}>
-          {"<< "}Previous
+        <Button onClick={() => handlePageChange("previous")}>
+          {"<< "}Prev
         </Button>
         <PageNumberText>
-          {(page - 1) * 10 + 1} - {(page - 1) * 10 + 10}
+          {getPaginationStart()} - {getPaginationEnd()} / {numOfProducts}
         </PageNumberText>
-        <Button onClick={() => setPage((prevPage) => prevPage + 1)}>
-          Next{" >>"}
-        </Button>
+        <Button onClick={() => handlePageChange("next")}>Next{" >>"}</Button>
       </ButtonContainer>
     </div>
   );
