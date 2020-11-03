@@ -1,12 +1,12 @@
 import React from "react";
 import { CardContainer, Title } from "./ProductCategory.styles";
-import { ResponseData } from "../../hooks/useRequestData";
+import { Item } from "../../hooks/useRequestData";
 import { Card } from "../../components/card/Card";
 
-export const renderProductData = (productData: ResponseData[]): JSX.Element => (
+export const renderProductData = (productData: Item[]): JSX.Element => (
   <CardContainer>
     {productData.map(
-      (item: ResponseData): JSX.Element => {
+      (item: Item): JSX.Element => {
         return (
           <Card key={item.id}>
             <p>name: {item.name}</p>

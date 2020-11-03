@@ -9,6 +9,10 @@ declare module "styled-components" {
             height: string,
             primaryColor: string,
             secondaryColor: string,
+        },
+        button: {
+            bgColor: string,
+            bgHoverColor: string
         }
     }
 }
@@ -21,6 +25,10 @@ export const lightTheme: DefaultTheme = {
         height: '60px',
         primaryColor: '#555',
         secondaryColor: '#ccc'
+    },
+    button: {
+        bgColor: '#fff',
+        bgHoverColor: '#7f7f7f'
     }
 }
 
@@ -32,5 +40,9 @@ export const darkTheme: DefaultTheme = {
         height: '60px',
         primaryColor: '#000',
         secondaryColor: '#999'
+    },
+    button: {
+        bgColor: '#5f5f5f',
+        bgHoverColor: '#7f7f7f'
     }
 }

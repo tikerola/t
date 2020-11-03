@@ -3,9 +3,10 @@ import { useEffect, useState } from "react";
 
 interface HookProps {
   url: string;
+  dependency?: number;
 }
 
-export interface ResponseData {
+export interface Item {
   id: string;
   color: string[];
   manufacturer: string;
@@ -14,21 +15,26 @@ export interface ResponseData {
   type: string;
 }
 
-export const useRequestData = ({ url }: HookProps) => {
-  const [productData, setProductData] = useState<ResponseData[]>([]);
+export interface ResponseData {
+  items: Item[];
+  numOfItems: number;
+}
+
+export const useRequestData = ({ url, dependency }: HookProps) => {
+  const [productData, setProductData] = useState<Item[]>([]);
 
   useEffect(() => {
     const getCategory = async () => {
       try {
-        const { data } = await axios["get"]<ResponseData[]>(url);
-        setProductData(data);
+        const { data } = await axios["get"]<ResponseData>(url);
+        setProductData(data.items);
       } catch (error) {
         console.log(error);
       }
     };
 
     getCategory();
-  });
+  }, [dependency]);
 
   return [productData];
 };

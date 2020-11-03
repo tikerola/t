@@ -10,7 +10,7 @@ export const NavigationContainer = styled.div`
 `;
 
 export const ImageContainer = styled(NavLink)`
-  width: 50px;
+  width: 40px;
   margin-left: 10px;
   margin-right: 100px;
 `;
