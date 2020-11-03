@@ -1,8 +1,5 @@
 import React from "react";
-import {
-  CardContainer,
-  Title,
-} from "../productCategory/ProductCategory.styles";
+import { CardContainer, Title } from "./ProductCategory.styles";
 import { ResponseData } from "../../hooks/useRequestData";
 import { Card } from "../../components/card/Card";
 

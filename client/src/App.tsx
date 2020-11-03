@@ -1,8 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Navigation } from "./components/navigation/Navigation";
+import { Accessories } from "./pages/accessories/Accessories";
 import { Home } from "./pages/Home";
-import { ProductCategory } from "./pages/productCategory/ProductCategory";
+import { Jackets } from "./pages/jackets/Jackets";
+import { Shirts } from "./pages/shirts/shirts";
 
 export const App = (): JSX.Element => {
   return (
@@ -11,13 +13,13 @@ export const App = (): JSX.Element => {
         <Navigation />
         <Switch>
           <Route path="/jackets">
-            <ProductCategory title="Jackets" category="jackets" />
+            <Jackets />
           </Route>
           <Route path="/shirts">
-            <ProductCategory title="Shirts" category="shirts" />
+            <Shirts />
           </Route>
           <Route path="/accessories">
-            <ProductCategory title="Accessories" category="accessories" />
+            <Accessories />
           </Route>
           <Route path="/">
             <Home />

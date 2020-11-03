@@ -11,7 +11,7 @@ export interface ResponseData {
   manufacturer: string;
   name: string;
   price: number;
-  typer: string;
+  type: string;
 }
 
 export const useRequestData = ({ url }: HookProps) => {
