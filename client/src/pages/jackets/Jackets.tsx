@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Spinner } from "../../components/spinner/Spinner";
+import { Spinner } from "../../components/spinner/Spinner.styles";
 import { useRequestData } from "../../hooks/useRequestData";
 import { ProductCategory } from "../common/ProductCategory";
 

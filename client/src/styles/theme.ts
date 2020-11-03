@@ -13,6 +13,11 @@ declare module "styled-components" {
         button: {
             bgColor: string,
             bgHoverColor: string
+        },
+        tag: {
+            cheap: string,
+            moderate: string,
+            expensive: string
         }
     }
 }
@@ -29,6 +34,11 @@ export const lightTheme: DefaultTheme = {
     button: {
         bgColor: '#fff',
         bgHoverColor: '#7f7f7f'
+    },
+    tag: {
+        cheap: 'green',
+        moderate: 'seagreen',
+        expensive: 'lightseagreen'
     }
 }
 
@@ -44,5 +54,10 @@ export const darkTheme: DefaultTheme = {
     button: {
         bgColor: '#5f5f5f',
         bgHoverColor: '#7f7f7f'
+    },
+    tag: {
+        cheap: 'green',
+        moderate: 'orange',
+        expensive: 'seagreen'
     }
 }

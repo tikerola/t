@@ -1,10 +1,10 @@
 import React, { Dispatch, SetStateAction } from "react";
 import { Item } from "../../hooks/useRequestData";
 import {
-  Title,
-  ButtonContainer,
   Button,
+  ButtonContainer,
   PageNumberText,
+  Title,
 } from "./ProductCategory.styles";
 import { renderProductData } from "./renderProductData";
 

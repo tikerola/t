@@ -1,7 +1,13 @@
 import React from "react";
-import { CardContainer, Title } from "./ProductCategory.styles";
-import { Item } from "../../hooks/useRequestData";
 import { Card } from "../../components/card/Card";
+import { Item } from "../../hooks/useRequestData";
+import {
+  CardContainer,
+  CardName,
+  ColorButton,
+  Manufacturer,
+  PriceTag,
+} from "./ProductCategory.styles";
 
 export const renderProductData = (productData: Item[]): JSX.Element => (
   <CardContainer>
@@ -9,10 +15,15 @@ export const renderProductData = (productData: Item[]): JSX.Element => (
       (item: Item): JSX.Element => {
         return (
           <Card key={item.id}>
-            <p>name: {item.name}</p>
-            <p>colors: {item.color.join(", ")}</p>
-            <p>manufacturer: {item.manufacturer}</p>
-            <p>price: {item.price}</p>
+            <CardName>{item.name}</CardName>
+            <Manufacturer>{item.manufacturer}</Manufacturer>
+            <p>
+              Available colors:{" "}
+              {item.color.map((c, i) => {
+                return <ColorButton key={i} color={c} />;
+              })}
+            </p>
+            <PriceTag price={item.price}>${item.price}</PriceTag>
           </Card>
         );
       }
