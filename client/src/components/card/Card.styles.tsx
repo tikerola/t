@@ -10,6 +10,7 @@ export const CardContainer = styled.div`
   width: 220px;
   height: 150px;
   background-color: #bbb;
+  position: relative;
 `;
 
 export const CardName = styled.p`

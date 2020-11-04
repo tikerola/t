@@ -46,7 +46,7 @@ export const PriceTag = styled.div<Props>`
       : props.price < 60
       ? props.theme.tag.moderate
       : props.theme.tag.expensive};
-  margin: 10px auto;
+  margin-top: 10px;
   color: white;
   display: flex;
   justify-content: center;
@@ -54,6 +54,15 @@ export const PriceTag = styled.div<Props>`
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
   box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  transform: rotate(25deg);
+  position: absolute;
+  bottom: 0;
+  left: -20px;
+`;
+
+export const ColorContainer = styled.div`
+  text-align: center;
+  color: #333;
 `;
 
 export const ColorButton = styled.div`
