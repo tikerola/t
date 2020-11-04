@@ -31,6 +31,10 @@ export const Input = styled.input`
   border-radius: 5px;
   background-color: rgba(187, 187, 187, 0.5);
   outline-style: none;
+
+  &::placeholder {
+    color: #333;
+  }
 `;
 
 export const CardContainer = styled.div`

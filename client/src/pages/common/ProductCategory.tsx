@@ -21,6 +21,7 @@ interface IProps {
   setPage: Dispatch<SetStateAction<number>>;
   productData: Item[];
   numOfProducts: number;
+  setFilter: Dispatch<SetStateAction<string>>;
 }
 
 export const ProductCategory = ({
@@ -29,6 +30,7 @@ export const ProductCategory = ({
   setPage,
   productData,
   numOfProducts,
+  setFilter,
 }: IProps): JSX.Element => {
   const handlePageChange = (direction: string): void => {
     if (direction === "previous" && page > 1)
@@ -49,8 +51,13 @@ export const ProductCategory = ({
     <div>
       <Title>{title}</Title>
       <InputContainer>
-        <Icon icon={faSearch} color="#999" />
-        <Input />
+        <Icon icon={faSearch} color="#bbb" />
+        <Input
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setFilter(e.target.value)
+          }
+          placeholder="Search by Name"
+        />
       </InputContainer>
       {renderProductData(productData)}
       <ButtonContainerBackground>

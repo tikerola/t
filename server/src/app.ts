@@ -20,9 +20,13 @@ app.get('/', (req: Request, res: Response) => {
 
 app.get('/products/jackets/:page', (req: Request, res: Response) => {
     const { page } = req.params
+    const filter = req.query.filter as string
+
+    const filteredJackets = jackets.filter((jacket) => jacket.name.toLowerCase().startsWith(filter.toLowerCase()))
     const pagination = itemsToReturn(parseInt(page))
-    res.status(200).send({items: jackets.slice(pagination.start, pagination.end), numOfItems: jackets.length})
+    res.status(200).send({items: filteredJackets.slice(pagination.start, pagination.end), numOfItems: filteredJackets.length})
 })
+
 app.get('/products/shirts/:page', (req: Request, res: Response) => {
     const { page } = req.params
     const pagination = itemsToReturn(parseInt(page))

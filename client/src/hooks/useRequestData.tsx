@@ -3,7 +3,9 @@ import { useEffect, useState } from "react";
 
 interface HookProps {
   url: string;
-  dependency?: number;
+  filterUrl?: string;
+  dependency: number;
+  filter?: string;
 }
 
 export interface Item {
@@ -20,7 +22,12 @@ export interface ResponseData {
   numOfItems: number;
 }
 
-export const useRequestData = ({ url, dependency }: HookProps) => {
+export const useRequestData = ({
+  url,
+  dependency,
+  filterUrl,
+  filter,
+}: HookProps) => {
   const [productData, setProductData] = useState<Item[]>([]);
   const [numOfProducts, setNumOfProducts] = useState(0);
 
@@ -36,7 +43,7 @@ export const useRequestData = ({ url, dependency }: HookProps) => {
     };
 
     getCategory();
-  }, [dependency]);
+  }, [dependency, filter]);
 
   return { productData, numOfProducts };
 };

@@ -8,11 +8,13 @@ export const Jackets = (): JSX.Element => {
   const [filter, setFilter] = useState("");
 
   const { productData, numOfProducts } = useRequestData({
-    url: `/products/jackets/${page}`,
+    url: `/products/jackets/${page}?filter=${filter}`,
+    filterUrl: `/products/jackets/${filter}`,
     dependency: page,
+    filter,
   });
 
-  if (!productData.length) return <Spinner />;
+  if (!productData.length && !filter) return <Spinner />;
 
   return (
     <ProductCategory
@@ -21,6 +23,7 @@ export const Jackets = (): JSX.Element => {
       setPage={setPage}
       productData={productData}
       numOfProducts={numOfProducts}
+      setFilter={setFilter}
     />
   );
 };
