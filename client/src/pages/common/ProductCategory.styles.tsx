@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
 
 export const Title = styled.h1`
@@ -7,6 +8,29 @@ export const Title = styled.h1`
   color: ${(props) => props.theme.titleColor};
   font-size: 2.2rem;
   text-shadow: 1px 1px 5px rgba(0, 0, 0, 1);
+`;
+
+export const InputContainer = styled.div`
+  width: 230px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  position: absolute;
+  top: 15px;
+  right: 40px;
+`;
+
+export const Icon = styled(FontAwesomeIcon)`
+  align-self: center;
+`;
+
+export const Input = styled.input`
+  width: 200px;
+  height: 30px;
+  padding: 2px;
+  border-radius: 5px;
+  background-color: rgba(187, 187, 187, 0.5);
+  outline-style: none;
 `;
 
 export const CardContainer = styled.div`

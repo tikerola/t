@@ -1,12 +1,17 @@
 import { url } from "inspector";
 import React, { Dispatch, SetStateAction } from "react";
 import { Item } from "../../hooks/useRequestData";
+
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import {
   Button,
   ButtonContainer,
   ButtonContainerBackground,
   PageNumberText,
   Title,
+  Input,
+  InputContainer,
+  Icon,
 } from "./ProductCategory.styles";
 import { renderProductData } from "./renderProductData";
 
@@ -43,6 +48,10 @@ export const ProductCategory = ({
   return (
     <div>
       <Title>{title}</Title>
+      <InputContainer>
+        <Icon icon={faSearch} color="#999" />
+        <Input />
+      </InputContainer>
       {renderProductData(productData)}
       <ButtonContainerBackground>
         <ButtonContainer>

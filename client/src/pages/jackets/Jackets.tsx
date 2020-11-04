@@ -5,6 +5,7 @@ import { ProductCategory } from "../common/ProductCategory";
 
 export const Jackets = (): JSX.Element => {
   const [page, setPage] = useState(1);
+  const [filter, setFilter] = useState("");
 
   const { productData, numOfProducts } = useRequestData({
     url: `/products/jackets/${page}`,
