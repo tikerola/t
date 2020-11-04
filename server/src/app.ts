@@ -1,38 +1,13 @@
-import express, { Request, Response} from 'express'
-import { fetchData } from './fetchData/fetchData'
+import express, { Request, Response } from 'express'
+import { accessories, jackets, shirts } from '..'
 
 const NUMBER_OF_PRODUCTS_TO_RETURN = 10
 
-export interface ProductData {
-    id: string
-    name: string
-    price: number
-    manufacturer: string
-    type: string
-}
-
-let jackets: ProductData[]
-let shirts: ProductData[]
-let accessories: ProductData[]
 
 const app = express()
 
-fetchData('jackets')
-.then((data): void => { 
-    jackets = data as ProductData[] 
-})
 
-fetchData('shirts')
-.then((data): void => { 
-    shirts = data as ProductData[] 
-})
-
-fetchData('accessories')
-.then((data): void => { 
-    accessories = data as ProductData[] 
-})
-
-const itemsToReturn = (page: number) => {
+const itemsToReturn = (page: number) : { start: number, end: number } => {
     const start = (page - 1) * NUMBER_OF_PRODUCTS_TO_RETURN
     const end = start + NUMBER_OF_PRODUCTS_TO_RETURN
 
