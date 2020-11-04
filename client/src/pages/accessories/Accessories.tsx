@@ -8,13 +8,13 @@ export const Accessories = (): JSX.Element => {
   const [filter, setFilter] = useState("");
 
   const { productData, numOfProducts } = useRequestData({
-    url: `/products/accessories/${page}`,
+    url: `/products/accessories/${page}?filter=${filter}`,
     filterUrl: `/products/accessories${filter}`,
     dependency: page,
     filter,
   });
 
-  if (!productData.length) return <Spinner />;
+  if (!productData.length && !filter) return <Spinner />;
 
   return (
     <ProductCategory

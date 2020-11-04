@@ -8,13 +8,13 @@ export const Shirts = (): JSX.Element => {
   const [filter, setFilter] = useState("");
 
   const { productData, numOfProducts } = useRequestData({
-    url: `/products/shirts/${page}`,
+    url: `/products/shirts/${page}?filter=${filter}`,
     filterUrl: `/products/shirts${filter}`,
     dependency: page,
     filter,
   });
 
-  if (!productData.length) return <Spinner />;
+  if (!productData.length && !filter) return <Spinner />;
 
   return (
     <ProductCategory
