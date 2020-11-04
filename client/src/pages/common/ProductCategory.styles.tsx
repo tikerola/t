@@ -17,7 +17,8 @@ export const CardContainer = styled.div`
 `;
 
 export const CardName = styled.div`
-  border-radius: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
   text-align: center;
   background-color: rgb(255, 255, 255, 0.5);
   padding: 5px;
