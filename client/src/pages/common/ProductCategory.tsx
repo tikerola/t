@@ -4,6 +4,7 @@ import { Item } from "../../hooks/useRequestData";
 import {
   Button,
   ButtonContainer,
+  ButtonContainerBackground,
   PageNumberText,
   Title,
 } from "./ProductCategory.styles";
@@ -43,15 +44,17 @@ export const ProductCategory = ({
     <div>
       <Title>{title}</Title>
       {renderProductData(productData)}
-      <ButtonContainer>
-        <Button onClick={() => handlePageChange("previous")}>
-          {"<< "}Prev
-        </Button>
-        <PageNumberText>
-          {getPaginationStart()} - {getPaginationEnd()} / {numOfProducts}
-        </PageNumberText>
-        <Button onClick={() => handlePageChange("next")}>Next{" >>"}</Button>
-      </ButtonContainer>
+      <ButtonContainerBackground>
+        <ButtonContainer>
+          <Button onClick={() => handlePageChange("previous")}>
+            {"<< "}Prev
+          </Button>
+          <PageNumberText>
+            {getPaginationStart()} - {getPaginationEnd()} / {numOfProducts}
+          </PageNumberText>
+          <Button onClick={() => handlePageChange("next")}>Next{" >>"}</Button>
+        </ButtonContainer>
+      </ButtonContainerBackground>
     </div>
   );
 };

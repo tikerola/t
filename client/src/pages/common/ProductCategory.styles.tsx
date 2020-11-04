@@ -5,6 +5,8 @@ export const Title = styled.h1`
   margin-bottom: 10px;
   padding-left: 25%;
   color: ${(props) => props.theme.titleColor};
+  font-size: 2.2rem;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 1);
 `;
 
 export const CardContainer = styled.div`
@@ -71,14 +73,17 @@ export const ColorButton = styled.div`
   margin-right: 5px;
 `;
 
+export const ButtonContainerBackground = styled.div`
+  background-color: rgba(51, 51, 51, 0.8);
+`;
+
 export const ButtonContainer = styled.div`
   display: flex;
   flex-direction: row;
   width: 40%;
   justify-content: space-between;
   margin: 15px auto;
-  background-color: rgba(51, 51, 51, 0.8);
-  border-radius: 8px;
+  border-radius: 0px;
 `;
 
 export const Button = styled.div`
@@ -89,7 +94,6 @@ export const Button = styled.div`
   justify-content: center;
   border-radius: 8px;
   cursor: pointer;
-  font-weight: bold;
   color: #fff;
 
   &:hover {
