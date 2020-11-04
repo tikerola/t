@@ -1,14 +1,15 @@
 import React from "react";
-import { Title, TextContainer, Text } from "./Home.styles";
+import { Title, TextContainer, Text, PageName } from "./Home.styles";
 
 export const Home = (): JSX.Element => {
   return (
     <div>
-      <Title>Welcome!</Title>
+      <PageName>Accessory Paradise</PageName>
+      <Title>Hey there...</Title>
       <TextContainer>
         <Text>
           Browse through. We've got pretty much everything a person might ever
-          need, like sunglasses and shit...
+          need, like jackets, shirts, sunglasses, bracelets and shit...
         </Text>
       </TextContainer>
     </div>

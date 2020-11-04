@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { ProductData } from '../app'
+import { ProductData } from '../../index'
 
 
 const fetchData = (category: string) => {
