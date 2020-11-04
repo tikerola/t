@@ -25,14 +25,14 @@ declare module "styled-components" {
 export const lightTheme: DefaultTheme = {
     primaryColor: '#333',
     secondaryColor: '#666',
-    titleColor: '#999',
+    titleColor: '#222',
     navigation: {
         height: '60px',
-        primaryColor: '#555',
+        primaryColor: 'rgba(0,0,0,0.7)',
         secondaryColor: '#ccc'
     },
     button: {
-        bgColor: '#fff',
+        bgColor: 'rgba(51, 51, 51, 0.8)',
         bgHoverColor: '#7f7f7f'
     },
     tag: {
@@ -45,7 +45,7 @@ export const lightTheme: DefaultTheme = {
 export const darkTheme: DefaultTheme = {
     primaryColor: '#fff',
     secondaryColor: '#cacaca',
-    titleColor: '#999',
+    titleColor: '#222',
     navigation: {
         height: '60px',
         primaryColor: '#000',

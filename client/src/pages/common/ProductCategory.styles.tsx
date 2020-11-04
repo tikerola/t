@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Title = styled.h1`
   margin-top: 20px;
   margin-bottom: 10px;
-  text-align: center;
+  padding-left: 25%;
   color: ${(props) => props.theme.titleColor};
 `;
 
@@ -15,12 +15,9 @@ export const CardContainer = styled.div`
 `;
 
 export const CardName = styled.div`
-  //height: 40px;
   border-radius: 5px;
-  /* height: 30px;
-  margin-bottom: 10px; */
   text-align: center;
-  background-color: white;
+  background-color: rgb(255, 255, 255, 0.5);
   padding: 5px;
 `;
 
@@ -80,12 +77,11 @@ export const ButtonContainer = styled.div`
   width: 40%;
   justify-content: space-between;
   margin: 15px auto;
-  background-color: #333;
+  background-color: rgba(51, 51, 51, 0.8);
   border-radius: 8px;
 `;
 
 export const Button = styled.div`
-  background-color: ${(props) => props.theme.button.bgColor};
   width: 150px;
   height: 35px;
   display: flex;
@@ -94,6 +90,7 @@ export const Button = styled.div`
   border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
+  color: #fff;
 
   &:hover {
     color: ${(props) => props.theme.button.bgHoverColor};

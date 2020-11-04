@@ -9,7 +9,7 @@ export const CardContainer = styled.div`
   display: inline-block;
   width: 220px;
   height: 150px;
-  background-color: #bbb;
+  background-color: rgba(187, 187, 187, 0.85);
   position: relative;
 `;
 
