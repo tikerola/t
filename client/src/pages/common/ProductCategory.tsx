@@ -12,6 +12,7 @@ import {
   Input,
   InputContainer,
   Icon,
+  NoMatchesText,
 } from "./ProductCategory.styles";
 import { renderProductData } from "./renderProductData";
 
@@ -62,17 +63,23 @@ export const ProductCategory = ({
         />
       </InputContainer>
       {renderProductData(productData)}
-      <ButtonContainerBackground>
-        <ButtonContainer>
-          <Button onClick={() => handlePageChange("previous")}>
-            {"<< "}Prev
-          </Button>
-          <PageNumberText>
-            {getPaginationStart()} - {getPaginationEnd()} / {numOfProducts}
-          </PageNumberText>
-          <Button onClick={() => handlePageChange("next")}>Next{" >>"}</Button>
-        </ButtonContainer>
-      </ButtonContainerBackground>
+      {productData.length > 0 ? (
+        <ButtonContainerBackground>
+          <ButtonContainer>
+            <Button onClick={() => handlePageChange("previous")}>
+              {"<< "}Prev
+            </Button>
+            <PageNumberText>
+              {getPaginationStart()} - {getPaginationEnd()} / {numOfProducts}
+            </PageNumberText>
+            <Button onClick={() => handlePageChange("next")}>
+              Next{" >>"}
+            </Button>
+          </ButtonContainer>
+        </ButtonContainerBackground>
+      ) : (
+        <NoMatchesText>No Matches Found!</NoMatchesText>
+      )}
     </div>
   );
 };

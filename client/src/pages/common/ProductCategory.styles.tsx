@@ -146,3 +146,12 @@ export const PageNumberText = styled.div`
   justify-content: center;
   color: #fff;
 `;
+
+export const NoMatchesText = styled.div`
+  height: 40vh;
+  display: flex;
+  font-size: 2.5rem;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.6);
+`;
