@@ -13,6 +13,7 @@ import {
   InputContainer,
   Icon,
   NoMatchesText,
+  NoMatchesTextContainer,
 } from "./ProductCategory.styles";
 import { renderProductData } from "./renderProductData";
 
@@ -78,7 +79,9 @@ export const ProductCategory = ({
           </ButtonContainer>
         </ButtonContainerBackground>
       ) : (
-        <NoMatchesText>No Matches Found!</NoMatchesText>
+        <NoMatchesTextContainer>
+          <NoMatchesText>No Matches Found!</NoMatchesText>
+        </NoMatchesTextContainer>
       )}
     </div>
   );
