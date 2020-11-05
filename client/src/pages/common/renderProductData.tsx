@@ -8,6 +8,7 @@ import {
   Manufacturer,
   PriceTag,
   ColorContainer,
+  Availability,
 } from "./ProductCategory.styles";
 
 export const renderProductData = (productData: Item[]): JSX.Element => (
@@ -23,6 +24,7 @@ export const renderProductData = (productData: Item[]): JSX.Element => (
               {item.color.map((c, i) => {
                 return <ColorButton key={i} color={c} />;
               })}
+              <Availability>{item.availability}</Availability>
             </ColorContainer>
             <PriceTag price={item.price}>${item.price}</PriceTag>
           </Card>

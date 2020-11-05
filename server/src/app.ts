@@ -46,12 +46,12 @@ app.get("/products/jackets/:page", (req: Request, res: Response) => {
     : jackets;
   const pagination = itemsToReturn(parseInt(page));
 
-  const jacketsPopulatedWithManufacturer = populateAvailability(
+  const jacketsPopulatedWithAvailability = populateAvailability(
     filteredJackets.slice(pagination.start, pagination.end)
   );
 
   res.status(200).send({
-    items: jacketsPopulatedWithManufacturer,
+    items: jacketsPopulatedWithAvailability,
     numOfItems: filteredJackets.length,
   });
 });
@@ -66,8 +66,13 @@ app.get("/products/shirts/:page", (req: Request, res: Response) => {
       )
     : shirts;
   const pagination = itemsToReturn(parseInt(page));
+
+  const ShirtsPopulatedWithAvailability = populateAvailability(
+    filteredShirts.slice(pagination.start, pagination.end)
+  );
+
   res.status(200).send({
-    items: filteredShirts.slice(pagination.start, pagination.end),
+    items: ShirtsPopulatedWithAvailability,
     numOfItems: filteredShirts.length,
   });
 });
@@ -81,8 +86,13 @@ app.get("/products/accessories/:page", (req: Request, res: Response) => {
       )
     : accessories;
   const pagination = itemsToReturn(parseInt(page));
+
+  const AccessoriesPopulatedWithAvailability = populateAvailability(
+    filteredAccessories.slice(pagination.start, pagination.end)
+  );
+
   res.status(200).send({
-    items: filteredAccessories.slice(pagination.start, pagination.end),
+    items: AccessoriesPopulatedWithAvailability,
     numOfItems: filteredAccessories.length,
   });
 });

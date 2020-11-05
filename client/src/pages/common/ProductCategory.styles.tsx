@@ -65,6 +65,12 @@ interface Props {
   price: number;
 }
 
+export const Availability = styled.div`
+  margin-top: 15px;
+  font-family: "Luckiest Guy", cursive;
+  text-align: center;
+`;
+
 export const PriceTag = styled.div<Props>`
   width: 80px;
   height: 20px;
