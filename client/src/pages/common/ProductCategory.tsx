@@ -53,9 +53,10 @@ export const ProductCategory = ({
       <InputContainer>
         <Icon icon={faSearch} color="#bbb" />
         <Input
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            setFilter(e.target.value)
-          }
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+            setPage(1);
+            setFilter(e.target.value);
+          }}
           placeholder="Search by Name"
         />
       </InputContainer>
