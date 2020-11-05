@@ -11,6 +11,12 @@ const NUMBER_OF_PRODUCTS_TO_RETURN = 10;
 
 const app = express();
 
+const availabilityToString = {
+  INSTOCK: "IN STOCK",
+  OUTOFSTOCK: "OUT OF STOCK",
+  LESSTHAN10: "LESS THAN 10",
+};
+
 const itemsToReturn = (page: number): { start: number; end: number } => {
   const start = (page - 1) * NUMBER_OF_PRODUCTS_TO_RETURN;
   const end = start + NUMBER_OF_PRODUCTS_TO_RETURN;
@@ -20,11 +26,15 @@ const itemsToReturn = (page: number): { start: number; end: number } => {
 
 const populateAvailability = (products: ProductData[]): ProductData[] => {
   let productData: ProductData[] = [];
+
   for (const product of products) {
     productData.push({
       ...product,
       availability:
-        manufacturerLookupObj[product.id.toUpperCase()].availability,
+        availabilityToString[
+          manufacturerLookupObj[product.id.toUpperCase()]
+            .availability as keyof typeof availabilityToString
+        ],
     });
   }
 
