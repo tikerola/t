@@ -44,7 +44,8 @@ export const ProductCategory = ({
   };
 
   const getPaginationEnd = (): number => {
-    return (page - 1) * 10 + 10;
+    const end = (page - 1) * 10 + 10;
+    return end < numOfProducts ? end : numOfProducts;
   };
 
   return (
