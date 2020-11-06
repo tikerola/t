@@ -14,7 +14,7 @@ interface ResponseItem {
 
 interface ManufacturerData {
   code: number;
-  response: [ResponseItem];
+  response: [ResponseItem] | string;
 }
 
 enum Manufacturers {
@@ -52,20 +52,24 @@ export const initializeProductData = async (): Promise<ProductDataResponse> => {
   return { jackets, shirts, accessories };
 };
 
-const fetchManufacturerData = async (
+const fetchAvailabilityData = async (
   manufacturer: Manufacturers
 ): Promise<ManufacturerData | undefined> => {
   const baseUrl = "https://bad-api-assignment.reaktor.com/availability/";
-  let data: ManufacturerData | undefined;
+  let data: ManufacturerData;
 
   try {
     const response = await axios.get<ManufacturerData>(
-      `${baseUrl}${manufacturer}`
-      /*  ,
+      `${baseUrl}${manufacturer}` /* ,
       { headers: { "x-force-error-mode": "all" } } */
     );
     data = response.data;
+    if (data?.response === "[]") {
+      console.log("retry with manufacturer " + manufacturer);
+      return fetchAvailabilityData(manufacturer);
+    }
   } catch (error) {
+    console.log("Tänne ei pitäisi päästä");
     throw error;
   }
   return data;
@@ -84,8 +88,9 @@ export const initializeManufacturerData = async () => {
 
   for await (const value of Object.values(Manufacturers)) {
     try {
-      const data = await fetchManufacturerData(value);
-      if (data?.response.length && data.code === 200) {
+      const data = await fetchAvailabilityData(value);
+
+      if (data?.response.length && typeof data.response !== "string") {
         for (const obj of data.response) {
           manufacturerLookupObj[obj.id] = {
             availability: extractAvailability(obj.DATAPAYLOAD),
