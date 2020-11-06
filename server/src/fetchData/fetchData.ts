@@ -61,10 +61,12 @@ const fetchManufacturerData = async (
   try {
     const response = await axios.get<ManufacturerData>(
       `${baseUrl}${manufacturer}`
+      /*  ,
+      { headers: { "x-force-error-mode": "all" } } */
     );
     data = response.data;
   } catch (error) {
-    console.log(error);
+    throw error;
   }
   return data;
 };
@@ -81,16 +83,22 @@ export const initializeManufacturerData = async () => {
   let manufacturerLookupObj: ManufacturerLookupObject = {};
 
   for await (const value of Object.values(Manufacturers)) {
-    const data = await fetchManufacturerData(value);
-
-    if (data?.response)
-      for (const obj of data.response) {
-        manufacturerLookupObj[obj.id] = {
-          availability: extractAvailability(obj.DATAPAYLOAD),
-          manufacturer: value,
-        };
+    try {
+      const data = await fetchManufacturerData(value);
+      if (data?.response.length && data.code === 200) {
+        for (const obj of data.response) {
+          manufacturerLookupObj[obj.id] = {
+            availability: extractAvailability(obj.DATAPAYLOAD),
+            manufacturer: value,
+          };
+        }
       }
+    } catch (error) {
+      // Build in api error seems to just result in 200 code and an empty array
+      console.log("Something went wrong when fetching availability data");
+    }
   }
-  console.log(manufacturerLookupObj);
+
+  console.log("Works!!!!!");
   return manufacturerLookupObj;
 };

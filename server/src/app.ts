@@ -5,6 +5,7 @@ import {
   ProductData,
   shirts,
   manufacturerLookupObj,
+  ManufacturerLookupObject,
 } from "..";
 
 const NUMBER_OF_PRODUCTS_TO_RETURN = 10;
@@ -26,15 +27,16 @@ const itemsToReturn = (page: number): { start: number; end: number } => {
 
 const populateAvailability = (products: ProductData[]): ProductData[] => {
   let productData: ProductData[] = [];
-
+  let manufacturerData: { availability: string; manufacturer: string };
   for (const product of products) {
+    manufacturerData = manufacturerLookupObj[product.id.toUpperCase()];
     productData.push({
       ...product,
-      availability:
-        availabilityToString[
-          manufacturerLookupObj[product.id.toUpperCase()]
-            .availability as keyof typeof availabilityToString
-        ],
+      availability: manufacturerData
+        ? availabilityToString[
+            manufacturerData.availability as keyof typeof availabilityToString
+          ]
+        : "",
     });
   }
 
