@@ -60,7 +60,7 @@ export const ProductCategory = ({
             setPage(1);
             setFilter(e.target.value);
           }}
-          placeholder="Search by Name"
+          placeholder="Filter by Name"
         />
       </InputContainer>
       {renderProductData(productData)}

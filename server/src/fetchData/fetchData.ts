@@ -69,7 +69,6 @@ const fetchAvailabilityData = async (
       return fetchAvailabilityData(manufacturer);
     }
   } catch (error) {
-    console.log("Tänne ei pitäisi päästä");
     throw error;
   }
   return data;
@@ -83,11 +82,14 @@ const extractAvailability = (dataPayload: string): string => {
   return availability;
 };
 
-export const initializeManufacturerData = async () => {
+export const initializeAvailabilityData = async (): Promise<
+  ManufacturerLookupObject
+> => {
   let manufacturerLookupObj: ManufacturerLookupObject = {};
 
   for await (const value of Object.values(Manufacturers)) {
     try {
+      // 'Build in api' -error seems to just result in 200 code and an string '[]'
       const data = await fetchAvailabilityData(value);
 
       if (data?.response.length && typeof data.response !== "string") {
@@ -99,11 +101,20 @@ export const initializeManufacturerData = async () => {
         }
       }
     } catch (error) {
-      // Build in api error seems to just result in 200 code and an empty array
       console.log("Something went wrong when fetching availability data");
     }
   }
 
   console.log("Works!!!!!");
   return manufacturerLookupObj;
+};
+
+export const initializeData = async (): Promise<{
+  productData: ProductDataResponse;
+  availabilityData: ManufacturerLookupObject;
+}> => {
+  const productData = await initializeProductData();
+  const availabilityData = await initializeAvailabilityData();
+
+  return { productData, availabilityData };
 };
