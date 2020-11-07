@@ -27,6 +27,8 @@ export interface ManufacturerData {
   response: [ResponseItem] | string;
 }
 
+/* TODO: get rid of hardcoded names and query for possible new manufacturers */
+
 export enum Manufacturers {
   reps = "reps",
   abiblos = "abiplos",

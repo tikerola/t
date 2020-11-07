@@ -6,6 +6,8 @@ const port = process.env.PORT || 3001;
 
 export const productDataFetcher = new ProductDataFetcher();
 
+/* Initialize jackets, shirts, accessories and avalability data and update data once every five minutes */
+
 productDataFetcher.initializeData().then((): void => {
   cron.schedule("*/5 * * * *", (): void => {
     productDataFetcher.initializeData();
