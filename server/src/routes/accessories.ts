@@ -6,7 +6,10 @@ const router = express.Router();
 
 router.get("/products/accessories/:page", (req: Request, res: Response) => {
   const { page } = req.params;
-  const filter = req.query.filter as string;
+  const { filter, ppp: productsPerPage } = req.query as {
+    filter: string;
+    ppp: string;
+  };
 
   const filteredAccessories = filter
     ? productDataFetcher
@@ -15,10 +18,14 @@ router.get("/products/accessories/:page", (req: Request, res: Response) => {
           accessory.name.toLowerCase().startsWith(filter.toLowerCase())
         )
     : productDataFetcher.getAccessories();
-  const pagination = itemIndexesFromPageNumber(parseInt(page));
+
+  const { start, end } = itemIndexesFromPageNumber(
+    parseInt(page),
+    parseInt(productsPerPage)
+  );
 
   const AccessoriesPopulatedWithAvailability = productDataFetcher.populateAvailability(
-    filteredAccessories.slice(pagination.start, pagination.end)
+    filteredAccessories.slice(start, end)
   );
 
   res.status(200).send({

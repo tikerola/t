@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Spinner } from "../../components/spinner/Spinner.styles";
 import { useRequestData } from "../../hooks/useRequestData";
+import { PRODUCTS_PER_PAGE } from "../common/constants";
 import { ProductCategory } from "../common/ProductCategory";
 
 export const Accessories = (): JSX.Element => {
@@ -8,7 +9,7 @@ export const Accessories = (): JSX.Element => {
   const [filter, setFilter] = useState("");
 
   const { productData, numOfProducts } = useRequestData({
-    url: `/products/accessories/${page}?filter=${filter}`,
+    url: `/products/accessories/${page}?filter=${filter}&ppp=${PRODUCTS_PER_PAGE}`,
     filterUrl: `/products/accessories${filter}`,
     dependency: page,
     filter,

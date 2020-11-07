@@ -6,7 +6,10 @@ const router = express.Router();
 
 router.get("/products/jackets/:page", (req: Request, res: Response) => {
   const { page } = req.params;
-  const filter = req.query.filter as string;
+  const { filter, ppp: productsPerPage } = req.query as {
+    filter: string;
+    ppp: string;
+  };
 
   /* Return products which start with filter */
 
@@ -20,7 +23,10 @@ router.get("/products/jackets/:page", (req: Request, res: Response) => {
 
   /* Products between these indexes we want to return  */
 
-  const { start, end } = itemIndexesFromPageNumber(parseInt(page));
+  const { start, end } = itemIndexesFromPageNumber(
+    parseInt(page),
+    parseInt(productsPerPage)
+  );
 
   /* Populate availability data of products */
 

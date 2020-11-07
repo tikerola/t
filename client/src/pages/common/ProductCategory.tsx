@@ -16,6 +16,7 @@ import {
   NoMatchesTextContainer,
 } from "./ProductCategory.styles";
 import { renderProductData } from "./renderProductData";
+import { PRODUCTS_PER_PAGE } from "./constants";
 
 interface IProps {
   title: string;
@@ -42,11 +43,11 @@ export const ProductCategory = ({
   };
 
   const getPaginationStart = (): number => {
-    return (page - 1) * 10 + 1;
+    return (page - 1) * PRODUCTS_PER_PAGE + 1;
   };
 
   const getPaginationEnd = (): number => {
-    const end = (page - 1) * 10 + 10;
+    const end = (page - 1) * PRODUCTS_PER_PAGE + PRODUCTS_PER_PAGE;
     return end < numOfProducts ? end : numOfProducts;
   };
 

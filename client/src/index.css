@@ -12,4 +12,5 @@ body {
   background-size: cover;
   background-position: top left;
   font-family: "Bebas Neue", cursive;
+  overflow-x: hidden;
 }

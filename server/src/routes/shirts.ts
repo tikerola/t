@@ -6,7 +6,10 @@ const router = express.Router();
 
 router.get("/products/shirts/:page", (req: Request, res: Response) => {
   const { page } = req.params;
-  const filter = req.query.filter as string;
+  const { filter, ppp: productsPerPage } = req.query as {
+    filter: string;
+    ppp: string;
+  };
 
   const filteredShirts = filter
     ? productDataFetcher
@@ -15,10 +18,14 @@ router.get("/products/shirts/:page", (req: Request, res: Response) => {
           shirt.name.toLowerCase().startsWith(filter.toLowerCase())
         )
     : productDataFetcher.getShirts();
-  const pagination = itemIndexesFromPageNumber(parseInt(page));
+
+  const { start, end } = itemIndexesFromPageNumber(
+    parseInt(page),
+    parseInt(productsPerPage)
+  );
 
   const ShirtsPopulatedWithAvailability = productDataFetcher.populateAvailability(
-    filteredShirts.slice(pagination.start, pagination.end)
+    filteredShirts.slice(start, end)
   );
 
   res.status(200).send({
