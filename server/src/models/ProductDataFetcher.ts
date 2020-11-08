@@ -58,6 +58,7 @@ export class ProductDataFetcher {
       const response = await axios.get<ProductData[]>(
         `${this.baseUrl}/products/${category}`
       );
+
       data = response.data;
     } catch (error) {
       console.log(error);
@@ -84,8 +85,6 @@ export class ProductDataFetcher {
         console.log("Something went wrong when fetching availability data");
       }
     }
-
-    console.log("Works!!!!!");
   };
 
   /* 
@@ -106,7 +105,6 @@ export class ProductDataFetcher {
       );
       data = response.data;
       if (data?.response === "[]") {
-        console.log("retry with manufacturer " + manufacturer);
         return this.fetchAvailabilityData(manufacturer);
       }
     } catch (error) {
