@@ -31,10 +31,10 @@ export interface ManufacturerData {
 
 export enum Manufacturers {
   reps = "reps",
-  abiblos = "abiplos",
-  nouke = "nouke",
-  xoon = "xoon",
   derp = "derp",
+  abiblos = "abiplos",
+  xoon = "xoon",
+  nouke = "nouke",
 }
 
 export const availabilityToString = {
@@ -42,3 +42,9 @@ export const availabilityToString = {
   OUTOFSTOCK: "OUT OF STOCK",
   LESSTHAN10: "LESS THAN 10",
 };
+
+export enum Categories {
+  jackets = "jackets",
+  shirts = "shirts",
+  accessories = "accessories",
+}

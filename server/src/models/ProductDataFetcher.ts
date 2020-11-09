@@ -5,6 +5,7 @@ import {
   ManufacturerData,
   Manufacturers,
   availabilityToString,
+  Categories,
 } from "./types/types";
 
 /* Class responsible for fetching and holding the product data of jackets, shirts and accessories */
@@ -40,10 +41,14 @@ export class ProductDataFetcher {
 
   initializeProductData = async (): Promise<void> => {
     try {
-      this.jackets = (await this.fetchProductData("jackets")) as ProductData[];
-      this.shirts = (await this.fetchProductData("shirts")) as ProductData[];
+      this.jackets = (await this.fetchProductData(
+        Categories.jackets
+      )) as ProductData[];
+      this.shirts = (await this.fetchProductData(
+        Categories.shirts
+      )) as ProductData[];
       this.accessories = (await this.fetchProductData(
-        "accessories"
+        Categories.accessories
       )) as ProductData[];
     } catch (error) {
       throw error;
@@ -52,7 +57,7 @@ export class ProductDataFetcher {
 
   /* Product Api called and result returned */
 
-  fetchProductData = async (category: string): Promise<ProductData[]> => {
+  fetchProductData = async (category: Categories): Promise<ProductData[]> => {
     let data: ProductData[] = [];
     try {
       const response = await axios.get<ProductData[]>(
@@ -120,7 +125,9 @@ export class ProductDataFetcher {
       .split("<INSTOCKVALUE>")[1]
       .split("</INSTOCKVALUE>")[0];
 
-    return availability;
+    return availabilityToString[
+      availability as keyof typeof availabilityToString
+    ];
   };
 
   /* When client asks for next set of jackets, we'll populate availability data for only those */
@@ -132,11 +139,7 @@ export class ProductDataFetcher {
       manufacturerData = this.availabilityData[product.id.toUpperCase()];
       productData.push({
         ...product,
-        availability: manufacturerData
-          ? availabilityToString[
-              manufacturerData.availability as keyof typeof availabilityToString
-            ]
-          : "",
+        availability: manufacturerData ? manufacturerData.availability : "",
       });
     }
 
