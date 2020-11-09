@@ -10,9 +10,7 @@ export const Jackets = (): JSX.Element => {
 
   const { productData, numOfProducts } = useRequestData({
     url: `/products/jackets/${page}?filter=${filter}&ppp=${PRODUCTS_PER_PAGE}`,
-    filterUrl: `/products/jackets/${filter}`,
-    dependency: page,
-    filter,
+    dependencies: [page, filter],
   });
 
   if (!productData.length && !filter) return <Spinner />;

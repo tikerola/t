@@ -1,11 +1,9 @@
-import axios, { AxiosResponse } from "axios";
+import axios from "axios";
 import { useEffect, useState } from "react";
 
 interface HookProps {
   url: string;
-  filterUrl?: string;
-  dependency: number;
-  filter?: string;
+  dependencies: [page: number, filter: string];
 }
 
 export interface Item {
@@ -23,14 +21,11 @@ export interface ResponseData {
   numOfItems: number;
 }
 
-export const useRequestData = ({
-  url,
-  dependency,
-  filterUrl,
-  filter,
-}: HookProps) => {
+export const useRequestData = ({ url, dependencies }: HookProps) => {
   const [productData, setProductData] = useState<Item[]>([]);
   const [numOfProducts, setNumOfProducts] = useState(0);
+
+  const [page, filter] = dependencies;
 
   useEffect(() => {
     const getCategory = async () => {
@@ -44,7 +39,7 @@ export const useRequestData = ({
     };
 
     getCategory();
-  }, [dependency, filter]);
+  }, [page, filter, url]);
 
   return { productData, numOfProducts };
 };
