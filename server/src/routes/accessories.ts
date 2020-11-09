@@ -24,12 +24,12 @@ router.get("/products/accessories/:page", (req: Request, res: Response) => {
     parseInt(productsPerPage)
   );
 
-  const AccessoriesPopulatedWithAvailability = productDataFetcher.populateAvailability(
+  const accessoriesPopulatedWithAvailability = productDataFetcher.populateAvailability(
     filteredAccessories.slice(start, end)
   );
 
   res.status(200).send({
-    items: AccessoriesPopulatedWithAvailability,
+    items: accessoriesPopulatedWithAvailability,
     numOfItems: filteredAccessories.length,
   });
 });

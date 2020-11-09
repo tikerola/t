@@ -11,6 +11,8 @@ router.get("/products/shirts/:page", (req: Request, res: Response) => {
     ppp: string;
   };
 
+  /* Return products which start with filter */
+
   const filteredShirts = filter
     ? productDataFetcher
         .getShirts()
@@ -19,17 +21,21 @@ router.get("/products/shirts/:page", (req: Request, res: Response) => {
         )
     : productDataFetcher.getShirts();
 
+  /* Products between these indexes we want to return  */
+
   const { start, end } = itemIndexesFromPageNumber(
     parseInt(page),
     parseInt(productsPerPage)
   );
 
-  const ShirtsPopulatedWithAvailability = productDataFetcher.populateAvailability(
+  /* Populate availability data of products */
+
+  const shirtsPopulatedWithAvailability = productDataFetcher.populateAvailability(
     filteredShirts.slice(start, end)
   );
 
   res.status(200).send({
-    items: ShirtsPopulatedWithAvailability,
+    items: shirtsPopulatedWithAvailability,
     numOfItems: filteredShirts.length,
   });
 });

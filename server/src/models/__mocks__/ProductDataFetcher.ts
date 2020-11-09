@@ -29,6 +29,54 @@ export class ProductDataFetcher {
     },
   ];
 
+  private shirts: ProductData[] = [
+    {
+      id: "1",
+      name: "one",
+      manufacturer: "mOne",
+      price: 1,
+      type: "tOne",
+    },
+    {
+      id: "2",
+      name: "two",
+      manufacturer: "mTwo",
+      price: 2,
+      type: "tTwo",
+    },
+    {
+      id: "3",
+      name: "three",
+      manufacturer: "mThree",
+      price: 3,
+      type: "tThree",
+    },
+  ];
+
+  private accessories: ProductData[] = [
+    {
+      id: "1",
+      name: "one",
+      manufacturer: "mOne",
+      price: 1,
+      type: "tOne",
+    },
+    {
+      id: "2",
+      name: "two",
+      manufacturer: "mTwo",
+      price: 2,
+      type: "tTwo",
+    },
+    {
+      id: "3",
+      name: "three",
+      manufacturer: "mThree",
+      price: 3,
+      type: "tThree",
+    },
+  ];
+
   private availabilityData: ManufacturerLookupObject = {
     "1": {
       availability: "INSTOCK",
@@ -46,6 +94,14 @@ export class ProductDataFetcher {
 
   getJackets = (): ProductData[] => {
     return this.jackets;
+  };
+
+  getShirts = (): ProductData[] => {
+    return this.shirts;
+  };
+
+  getAccessories = (): ProductData[] => {
+    return this.accessories;
   };
 
   getAvailabilityData = (): ManufacturerLookupObject => {

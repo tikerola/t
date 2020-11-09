@@ -176,6 +176,23 @@ describe("ProductDataFetcher", () => {
     expect(availabilityData).toEqual(availabilityResponse1.data);
   });
 
+  it("should call recursively fetchAvailabilityData twice when first request returns '[]'", async () => {
+    const productDataFetcher = new ProductDataFetcher();
+    (axios.get as jest.Mock)
+      .mockResolvedValueOnce({ data: { code: 200, response: "[]" } })
+      .mockResolvedValueOnce(availabilityResponse1);
+
+    const availabilityData1 = await productDataFetcher.fetchAvailabilityData(
+      Manufacturers.reps
+    );
+
+    expect(axios.get).toHaveBeenCalledWith(
+      "https://bad-api-assignment.reaktor.com/availability/reps"
+    );
+
+    expect(availabilityData1).toEqual(availabilityResponse1.data);
+  });
+
   it("should test method initializeAvailabilityData", async () => {
     const productDataFetcher = new ProductDataFetcher();
     (axios.get as jest.Mock)
@@ -189,7 +206,11 @@ describe("ProductDataFetcher", () => {
     const data = productDataFetcher.getAvailabilityData();
 
     expect(data).toEqual({
-      F33561DE3A864F951A: { availability: "IN STOCK", manufacturer: "reps" },
+      F33561DE3A864F951A: {
+        availability: "IN STOCK",
+        manufacturer: "reps",
+      },
+
       D9FE8BA212795CBA3914DD: {
         availability: "IN STOCK",
         manufacturer: "derp",
