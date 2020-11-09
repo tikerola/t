@@ -30,7 +30,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --coverage --no-cache",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -52,7 +52,8 @@
     ]
   },
   "devDependencies": {
-    "@types/styled-components": "^5.1.4"
+    "@types/styled-components": "^5.1.4",
+    "react-test-renderer": "^17.0.1"
   },
   "proxy": "http://localhost:3001"
 }
