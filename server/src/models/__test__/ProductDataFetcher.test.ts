@@ -193,7 +193,7 @@ describe("ProductDataFetcher", () => {
     expect(availabilityData1).toEqual(availabilityResponse1.data);
   });
 
-  it("should test method initializeAvailabilityData", async () => {
+  it("should test method initializeAvailabilityData and populateAvailability", async () => {
     const productDataFetcher = new ProductDataFetcher();
     (axios.get as jest.Mock)
       .mockResolvedValueOnce(availabilityResponse1)
@@ -229,6 +229,30 @@ describe("ProductDataFetcher", () => {
         manufacturer: "nouke",
       },
     });
+
+    const populatedWithAvailability = productDataFetcher.populateAvailability(
+      jResponse.data
+    );
+    expect(populatedWithAvailability).toEqual([
+      {
+        id: "f33561de3a864f951a",
+        type: "jackets",
+        name: "EWHHOP ROOM",
+        color: ["blue"],
+        price: 52,
+        manufacturer: "reps",
+        availability: "IN STOCK",
+      },
+      {
+        id: "0e4772c827c4296592fbd",
+        type: "jackets",
+        name: "WEERLEP METROPOLIS RAPTOR",
+        color: ["black"],
+        price: 98,
+        manufacturer: "reps",
+        availability: "",
+      },
+    ]);
   });
 
   it("should test method extractAvailability", async () => {
@@ -238,5 +262,17 @@ describe("ProductDataFetcher", () => {
     );
 
     expect(availability).toEqual("OUT OF STOCK");
+  });
+
+  it("should test method initializeData", async () => {
+    const productDataFetcher = new ProductDataFetcher();
+
+    const spy1 = jest.spyOn(productDataFetcher, "initializeProductData");
+    const spy2 = jest.spyOn(productDataFetcher, "initializeAvailabilityData");
+
+    await productDataFetcher.initializeData();
+
+    expect(spy1).toHaveBeenCalledTimes(1);
+    expect(spy2).toHaveBeenCalledTimes(1);
   });
 });

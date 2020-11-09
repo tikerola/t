@@ -5,10 +5,6 @@ import { shirtsRouter } from "./routes/shirts";
 
 const app = express();
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("Welcome");
-});
-
 /* Routes */
 
 app.use(jacketsRouter);
