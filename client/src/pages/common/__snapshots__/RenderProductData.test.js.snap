@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RenderProductData /> should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-gKsewC colzyP"
+  >
+    <div
+      class="sc-bdfBwQ kOQqDM"
+    >
+      <div
+        class="sc-iBPRYJ hxjBfL"
+      >
+        EWHHOP ROOM
+      </div>
+      <div
+        class="sc-fubCfw hOXhA"
+      >
+        reps
+      </div>
+      <div
+        class="sc-kEjbxe jhNXHq"
+      >
+        Available colors: 
+        <div
+          class="sc-iqHYGH cyinRC"
+          color="blue"
+          data-testid="color-button"
+        />
+        <div
+          class="sc-pFZIQ loYqnT"
+        >
+          IN STOCK
+        </div>
+      </div>
+      <div
+        class="sc-jrAGrp ebDMLb"
+      >
+        $52
+      </div>
+    </div>
+    <div
+      class="sc-bdfBwQ kOQqDM"
+    >
+      <div
+        class="sc-iBPRYJ hxjBfL"
+      >
+        WEERLEP METROPOLIS RAPTOR
+      </div>
+      <div
+        class="sc-fubCfw hOXhA"
+      >
+        reps
+      </div>
+      <div
+        class="sc-kEjbxe jhNXHq"
+      >
+        Available colors: 
+        <div
+          class="sc-iqHYGH dNWqiX"
+          color="black"
+          data-testid="color-button"
+        />
+        <div
+          class="sc-pFZIQ loYqnT"
+        >
+          OUT OF STOCK
+        </div>
+      </div>
+      <div
+        class="sc-jrAGrp gVzlQd"
+      >
+        $98
+      </div>
+    </div>
+    <div
+      class="sc-bdfBwQ kOQqDM"
+    >
+      <div
+        class="sc-iBPRYJ hxjBfL"
+      >
+        DERWEER TYRANNUS BANG
+      </div>
+      <div
+        class="sc-fubCfw hOXhA"
+      >
+        abiplos
+      </div>
+      <div
+        class="sc-kEjbxe jhNXHq"
+      >
+        Available colors: 
+        <div
+          class="sc-iqHYGH eWAKNS"
+          color="purple"
+          data-testid="color-button"
+        />
+        <div
+          class="sc-pFZIQ loYqnT"
+        >
+          LESS THAN 10
+        </div>
+      </div>
+      <div
+        class="sc-jrAGrp laVZyc"
+      >
+        $15
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

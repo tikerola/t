@@ -31,6 +31,7 @@ export const useRequestData = ({ url, dependencies }: HookProps) => {
     const getCategory = async () => {
       try {
         const { data } = await axios["get"]<ResponseData>(url);
+
         setProductData(data.items);
         setNumOfProducts(data.numOfItems);
       } catch (error) {

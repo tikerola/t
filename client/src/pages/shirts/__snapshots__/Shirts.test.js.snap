@@ -1,9 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Jackets/> should match snapshot 1`] = `
+exports[`<Shirts/> should match snapshot 1`] = `
 <DocumentFragment>
   <div
     class="sc-bdfBwQ EtZUd"
+    data-testid="spinner"
   />
 </DocumentFragment>
 `;

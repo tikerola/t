@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-bdfBwQ kfetxR"
+  >
+    <a
+      aria-current="page"
+      class="sc-gsTCUz bmYpEQ active"
+      href="/"
+    >
+      <img
+        alt="logo"
+        src="iceberg.svg"
+      />
+    </a>
+    <a
+      class="sc-dlfnbm kzgbDy"
+      href="/jackets"
+    >
+      Jackets
+    </a>
+    <a
+      class="sc-dlfnbm kzgbDy"
+      href="/shirts"
+    >
+      Shirts
+    </a>
+    <a
+      class="sc-dlfnbm kzgbDy"
+      href="/accessories"
+    >
+      Accessories
+    </a>
+  </div>
+  <div>
+    <h1
+      class="sc-hHftDr keOMBR"
+    >
+      Accessory Paradise
+    </h1>
+    <h1
+      class="sc-dmlrTW ifjykb"
+    >
+      Hey there...
+    </h1>
+    <div
+      class="sc-kfzAmx jIGBge"
+    >
+      <p
+        class="sc-fKFyDc cRmNxK"
+      >
+        Browse through. We've got pretty much everything a person might ever need, like jackets, shirts, sunglasses, bracelets and shit...
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -14,7 +14,7 @@ import {
   NoMatchesText,
   NoMatchesTextContainer,
 } from "./ProductCategory.styles";
-import { renderProductData } from "./renderProductData";
+import { RenderProductData } from "./RenderProductData";
 import { PRODUCTS_PER_PAGE } from "./constants";
 
 interface IProps {
@@ -63,7 +63,8 @@ export const ProductCategory = ({
           placeholder="Filter by Name"
         />
       </InputContainer>
-      {renderProductData(productData)}
+
+      <RenderProductData productData={productData} />
       {productData.length > 0 ? (
         <ButtonContainerBackground>
           <ButtonContainer>

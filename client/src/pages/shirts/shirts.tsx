@@ -13,7 +13,7 @@ export const Shirts = (): JSX.Element => {
     dependencies: [page, filter],
   });
 
-  if (!productData.length && !filter) return <Spinner />;
+  if (!productData.length && !filter) return <Spinner data-testid="spinner" />;
 
   return (
     <ProductCategory

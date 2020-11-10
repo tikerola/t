@@ -55,6 +55,7 @@ exports[`<ProductCategory/> should match snapshot 1`] = `
           <div
             class="sc-jrAGrp iyIsys"
             color="blue"
+            data-testid="color-button"
           />
           <div
             class="sc-iBPRYJ iXdAIx"
@@ -86,6 +87,7 @@ exports[`<ProductCategory/> should match snapshot 1`] = `
           <div
             class="sc-jrAGrp fRONuR"
             color="black"
+            data-testid="color-button"
           />
           <div
             class="sc-iBPRYJ iXdAIx"
@@ -117,6 +119,7 @@ exports[`<ProductCategory/> should match snapshot 1`] = `
           <div
             class="sc-jrAGrp efDoro"
             color="purple"
+            data-testid="color-button"
           />
           <div
             class="sc-iBPRYJ iXdAIx"

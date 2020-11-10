@@ -99,7 +99,11 @@ export const ColorContainer = styled.div`
   color: #333;
 `;
 
-export const ColorButton = styled.div`
+type ButtonProps = {
+  "data-testid": string;
+};
+
+export const ColorButton = styled.div<ButtonProps>`
   display: inline-block;
   width: 10px;
   height: 10px;

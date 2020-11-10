@@ -11,7 +11,11 @@ import {
   Availability,
 } from "./ProductCategory.styles";
 
-export const renderProductData = (productData: Item[]): JSX.Element => (
+interface IProps {
+  productData: Item[];
+}
+
+export const RenderProductData = ({ productData }: IProps): JSX.Element => (
   <CardContainer>
     {productData.map(
       (item: Item): JSX.Element => {
@@ -22,7 +26,9 @@ export const renderProductData = (productData: Item[]): JSX.Element => (
             <ColorContainer>
               Available colors:{" "}
               {item.color.map((c, i) => {
-                return <ColorButton key={i} color={c} />;
+                return (
+                  <ColorButton data-testid="color-button" key={i} color={c} />
+                );
               })}
               <Availability>{item.availability}</Availability>
             </ColorContainer>
