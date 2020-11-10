@@ -1,10 +1,12 @@
 import React from "react";
-import { render, fireEvent } from "../../test-utils";
+import { render, fireEvent, waitFor } from "../../test-utils";
 import { ProductCategory } from "./ProductCategory";
 import userEvent from "@testing-library/user-event";
 import { PRODUCTS_PER_PAGE } from "./constants";
 
-jest.mock("./constants", () => 1);
+jest.mock("./constants", () => ({
+  PRODUCTS_PER_PAGE: 2,
+}));
 
 const productData = [
   {
@@ -43,7 +45,7 @@ describe("<ProductCategory/>", () => {
         page={1}
         setPage={setPageMock}
         setFilter={setFilterMock}
-        numOfProducts={20}
+        numOfProducts={3}
         productData={productData}
       />
     );
@@ -60,7 +62,7 @@ describe("<ProductCategory/>", () => {
         page={1}
         setPage={setPageMock}
         setFilter={setFilterMock}
-        numOfProducts={20}
+        numOfProducts={3}
         productData={productData}
       />
     );
@@ -81,7 +83,7 @@ describe("<ProductCategory/>", () => {
         page={1}
         setPage={setPageMock}
         setFilter={setFilterMock}
-        numOfProducts={20}
+        numOfProducts={3}
         productData={productData}
       />
     );
@@ -99,16 +101,19 @@ describe("<ProductCategory/>", () => {
         page={1}
         setPage={setPageMock}
         setFilter={setFilterMock}
-        numOfProducts={20}
+        numOfProducts={3}
         productData={[]}
       />
     );
 
     const next = component.queryByText("Next >>");
     expect(next).not.toBeTruthy();
+
+    const noMatchesFound = component.queryByText("No Matches Found!");
+    expect(noMatchesFound).toBeDefined();
   });
 
-  it("should not render pagination when productData is empty", async () => {
+  it("should be able to change next and previous page only when appropriate", async () => {
     const setPageMock = jest.fn();
     const setFilterMock = jest.fn();
     const component = render(
@@ -117,12 +122,47 @@ describe("<ProductCategory/>", () => {
         page={1}
         setPage={setPageMock}
         setFilter={setFilterMock}
-        numOfProducts={20}
-        productData={[]}
+        numOfProducts={3}
+        productData={productData}
       />
     );
 
     const next = component.queryByText("Next >>");
-    expect(next).not.toBeTruthy();
+    const previous = component.queryByText("<< Prev");
+
+    let paginationText = component.queryByText("1 - 2 / 3");
+    expect(paginationText).toBeDefined();
+
+    fireEvent.click(previous);
+    paginationText = component.queryByText("1 - 2 / 3");
+    expect(paginationText).toBeDefined();
+
+    expect(setPageMock).not.toHaveBeenCalled();
+
+    fireEvent.click(next);
+    paginationText = component.queryByText("3 - 3 / 3");
+    expect(paginationText).toBeDefined();
+
+    component.rerender(
+      <ProductCategory
+        title="Jackets"
+        page={2}
+        setPage={setPageMock}
+        setFilter={setFilterMock}
+        numOfProducts={3}
+        productData={productData}
+      />
+    );
+
+    fireEvent.click(next);
+    paginationText = component.queryByText("3 - 3 / 3");
+    expect(paginationText).toBeDefined();
+
+    fireEvent.click(previous);
+
+    paginationText = component.queryByText("1 - 2 / 3");
+    expect(paginationText).toBeDefined();
+
+    expect(setPageMock).toHaveBeenCalledTimes(2);
   });
 });

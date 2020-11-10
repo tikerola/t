@@ -1,21 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { createStore, applyMiddleware } from "redux";
-import { Provider } from "react-redux";
-import thunk from "redux-thunk";
-import { App } from "./App";
-import { reducers } from "./store/reducers";
 import { ThemeProvider } from "styled-components";
-import { lightTheme } from "./styles/theme";
+import { App } from "./App";
 import "./index.css";
-
-const store = createStore(reducers, applyMiddleware(thunk));
+import { lightTheme } from "./styles/theme";
 
 ReactDOM.render(
-  <Provider store={store}>
-    <ThemeProvider theme={lightTheme}>
-      <App />
-    </ThemeProvider>
-  </Provider>,
+  <ThemeProvider theme={lightTheme}>
+    <App />
+  </ThemeProvider>,
   document.getElementById("root")
 );

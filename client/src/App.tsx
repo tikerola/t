@@ -4,7 +4,7 @@ import { Navigation } from "./components/navigation/Navigation";
 import { Accessories } from "./pages/accessories/Accessories";
 import { Home } from "./pages/home/Home";
 import { Jackets } from "./pages/jackets/Jackets";
-import { Shirts } from "./pages/shirts/shirts";
+import { Shirts } from "./pages/shirts/Shirts";
 
 export const App = (): JSX.Element => {
   return (
