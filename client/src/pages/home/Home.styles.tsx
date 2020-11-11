@@ -23,6 +23,12 @@ export const TextContainer = styled.div`
   @media (max-width: ${({ theme }) => theme.pad}) {
     width: 60%;
   }
+
+  @media (max-width: ${({ theme }) => theme.smallPad}) {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 15px;
+  }
+
   @media (max-width: ${({ theme }) => theme.mobile}) {
     width: 80%;
   }

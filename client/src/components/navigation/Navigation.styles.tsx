@@ -14,7 +14,7 @@ export const NavigationContainer = styled.div`
     top: 0;
     left: 0;
     width: 100vw;
-    z-index: 3;
+    z-index: 2;
   }
 `;
 
