@@ -1,12 +1,11 @@
 import React, {
-  useState,
+  createContext,
   Dispatch,
   SetStateAction,
-  createContext,
+  useState,
 } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { RoutesContainer } from "./App.styles";
-import { Menu } from "./components/menu/Menu";
 import { Navigation } from "./components/navigation/Navigation";
 import { ScrollToTop } from "./components/scrollToTop/ScrollToTop";
 import { Accessories } from "./pages/accessories/Accessories";
@@ -29,23 +28,23 @@ export const App = (): JSX.Element => {
         <ScrollToTop />
         <BurgerMenuContext.Provider value={{ open, setOpen }}>
           <Navigation />
+          <RoutesContainer>
+            <Switch>
+              <Route path="/jackets">
+                <Jackets />
+              </Route>
+              <Route path="/shirts">
+                <Shirts />
+              </Route>
+              <Route path="/accessories">
+                <Accessories />
+              </Route>
+              <Route path="/">
+                <Home />
+              </Route>
+            </Switch>
+          </RoutesContainer>
         </BurgerMenuContext.Provider>
-        <RoutesContainer>
-          <Switch>
-            <Route path="/jackets">
-              <Jackets />
-            </Route>
-            <Route path="/shirts">
-              <Shirts />
-            </Route>
-            <Route path="/accessories">
-              <Accessories />
-            </Route>
-            <Route path="/">
-              <Home />
-            </Route>
-          </Switch>
-        </RoutesContainer>
       </Router>
     </>
   );

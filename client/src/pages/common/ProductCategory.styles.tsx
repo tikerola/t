@@ -10,15 +10,20 @@ export const Title = styled.h1`
   text-shadow: 1px 1px 5px rgba(0, 0, 0, 1);
 `;
 
-export const InputContainer = styled.div`
-  width: 230px;
+type InputContainerProps = {
+  open: boolean | undefined;
+};
+
+export const InputContainer = styled.div<InputContainerProps>`
+  width: ${({ open }) => (open ? "100px" : "230px")};
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   position: absolute;
   top: 15px;
   right: 40px;
-  z-index: 2;
+  z-index: ${({ open }) => (open ? "0" : "2")};
+  transition: all 0.3s ease-in;
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
     position: fixed;

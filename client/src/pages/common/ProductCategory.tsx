@@ -16,6 +16,7 @@ import {
 } from "./ProductCategory.styles";
 import { RenderProductData } from "./RenderProductData";
 import { PRODUCTS_PER_PAGE } from "./constants";
+import { BurgerMenuContext } from "../../App";
 
 interface IProps {
   title: string;
@@ -34,6 +35,8 @@ export const ProductCategory = ({
   numOfProducts,
   setFilter,
 }: IProps): JSX.Element => {
+  const { open } = React.useContext(BurgerMenuContext);
+
   const handlePageChange = (direction: string): void => {
     if (direction === "previous" && page > 1)
       setPage((prevPage) => prevPage - 1);
@@ -53,7 +56,7 @@ export const ProductCategory = ({
   return (
     <div>
       <Title>{title}</Title>
-      <InputContainer>
+      <InputContainer open={open}>
         <Icon icon={faSearch} color="#bbb" />
         <Input
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
