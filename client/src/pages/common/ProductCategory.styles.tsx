@@ -31,9 +31,14 @@ export const Input = styled.input`
   border-radius: 5px;
   background-color: rgba(187, 187, 187, 0.5);
   outline-style: none;
+  z-index: 4;
 
   &::placeholder {
     color: #333;
+  }
+
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    position: fixed;
   }
 `;
 
@@ -123,6 +128,13 @@ export const ButtonContainer = styled.div`
   justify-content: space-between;
   margin: 15px auto;
   border-radius: 0px;
+
+  @media (max-width: ${({ theme }) => theme.pad}) {
+    width: 70%;
+  }
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    width: 90%;
+  }
 `;
 
 export const Button = styled.div`
@@ -141,6 +153,10 @@ export const Button = styled.div`
 
   &:active {
     color: white;
+  }
+
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    width: 100px;
   }
 `;
 
@@ -171,6 +187,12 @@ export const NoMatchesTextContainer = styled.div`
   justify-content: center;
   align-items: center;
   background-color: rgba(255, 255, 255, 0.6);
+
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    height: 20vh;
+    position: relative;
+    top: 100px;
+  }
 `;
 
 export const NoMatchesText = styled.p`

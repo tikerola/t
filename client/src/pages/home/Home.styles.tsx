@@ -19,6 +19,13 @@ export const Title = styled.h1`
 export const TextContainer = styled.div`
   margin-left: 6%;
   width: 30%;
+
+  @media (max-width: ${({ theme }) => theme.pad}) {
+    width: 60%;
+  }
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    width: 80%;
+  }
 `;
 
 export const Text = styled.p`

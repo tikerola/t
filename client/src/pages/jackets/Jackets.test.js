@@ -1,8 +1,7 @@
 import React from "react";
-import { render, waitFor } from "../../test-utils";
-import { Jackets } from "./Jackets";
-
 import * as hooks from "../../hooks/useRequestData";
+import { render } from "../../test-utils";
+import { Jackets } from "./Jackets";
 
 const productData = [
   {
