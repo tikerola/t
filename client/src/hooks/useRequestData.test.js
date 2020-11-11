@@ -1,6 +1,5 @@
-import React from "react";
-import axios from "axios";
 import { renderHook } from "@testing-library/react-hooks";
+import axios from "axios";
 import { useRequestData } from "./useRequestData";
 
 jest.mock("axios");

@@ -27,7 +27,6 @@ export const App = (): JSX.Element => {
     <>
       <Router>
         <ScrollToTop />
-        <Menu open={open} setOpen={setOpen} />
         <BurgerMenuContext.Provider value={{ open, setOpen }}>
           <Navigation />
         </BurgerMenuContext.Provider>

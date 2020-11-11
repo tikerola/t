@@ -1,13 +1,18 @@
-import React, { Dispatch, SetStateAction } from "react";
+import React, { Dispatch, SetStateAction, useContext } from "react";
 import { StyledMenu } from "./Menu.styles";
 import { Link } from "react-router-dom";
+import { BurgerMenuContext } from "../../App";
 
 type IProps = {
   open: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
 };
 
-export const Menu = ({ open, setOpen }: IProps): JSX.Element => {
+export const Menu = (): JSX.Element | null => {
+  const { open, setOpen } = useContext(BurgerMenuContext);
+
+  if (setOpen === undefined || open === undefined) return null;
+
   return (
     <StyledMenu open={open}>
       <Link to="/" onClick={() => setOpen((prev) => !prev)}>

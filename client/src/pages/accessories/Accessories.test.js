@@ -30,13 +30,6 @@ const productData = [
   },
 ];
 
-const data = {
-  data: {
-    items: productData,
-    numOfItems: 15,
-  },
-};
-
 describe("<Accessories/>", () => {
   it("should match snapshot", async () => {
     const component = render(<Accessories />);

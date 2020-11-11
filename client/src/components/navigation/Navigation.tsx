@@ -1,6 +1,7 @@
 import React from "react";
 import Logo from "../../assets/iceberg.svg";
 import { Burger } from "../burger/Burger";
+import { Menu } from "../menu/Menu";
 import {
   ImageContainer,
   NavigationContainer,
@@ -11,6 +12,7 @@ export const Navigation = (): JSX.Element => {
   return (
     <NavigationContainer>
       <Burger />
+      <Menu />
       <ImageContainer to="/">
         <img src={Logo} alt="logo" />
       </ImageContainer>

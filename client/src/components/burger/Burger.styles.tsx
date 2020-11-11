@@ -6,7 +6,6 @@ type ButtonProps = {
 };
 
 export const StyledBurger = styled.button<ButtonProps>`
-  position: relative;
   margin-left: 20px;
   display: flex;
   flex-direction: column;
