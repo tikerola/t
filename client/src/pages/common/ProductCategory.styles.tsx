@@ -18,6 +18,11 @@ export const InputContainer = styled.div`
   position: absolute;
   top: 15px;
   right: 40px;
+  z-index: 2;
+
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    position: fixed;
+  }
 `;
 
 export const Icon = styled(FontAwesomeIcon)`
@@ -31,14 +36,9 @@ export const Input = styled.input`
   border-radius: 5px;
   background-color: rgba(187, 187, 187, 0.5);
   outline-style: none;
-  z-index: 3;
 
   &::placeholder {
     color: #333;
-  }
-
-  @media (max-width: ${({ theme }) => theme.mobile}) {
-    position: fixed;
   }
 `;
 
