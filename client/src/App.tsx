@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { RoutesContainer } from "./App.styles";
 import { Menu } from "./components/menu/Menu";
 import { Navigation } from "./components/navigation/Navigation";
+import { ScrollToTop } from "./components/scrollToTop/ScrollToTop";
 import { Accessories } from "./pages/accessories/Accessories";
 import { Home } from "./pages/home/Home";
 import { Jackets } from "./pages/jackets/Jackets";
@@ -25,6 +26,7 @@ export const App = (): JSX.Element => {
   return (
     <>
       <Router>
+        <ScrollToTop />
         <Menu open={open} setOpen={setOpen} />
         <BurgerMenuContext.Provider value={{ open, setOpen }}>
           <Navigation />
