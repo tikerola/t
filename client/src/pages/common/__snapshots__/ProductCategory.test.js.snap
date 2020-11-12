@@ -9,7 +9,7 @@ exports[`<ProductCategory/> should match snapshot 1`] = `
       Jackets
     </h1>
     <div
-      class="sc-gsTCUz rJKlv"
+      class="sc-gsTCUz fxCkRv"
     >
       <svg
         aria-hidden="true"
@@ -136,10 +136,10 @@ exports[`<ProductCategory/> should match snapshot 1`] = `
       class="sc-kEjbxe jJfbkl"
     >
       <div
-        class="sc-iqHYGH kPMMMG"
+        class="sc-iqHYGH kHTKpj"
       >
         <div
-          class="sc-crrsfI jdXTAL"
+          class="sc-crrsfI jimuXQ"
         >
           &lt;&lt; Prev
         </div>
@@ -149,7 +149,7 @@ exports[`<ProductCategory/> should match snapshot 1`] = `
           1 - 2 / 3
         </div>
         <div
-          class="sc-crrsfI jdXTAL"
+          class="sc-crrsfI jimuXQ"
         >
           Next &gt;&gt;
         </div>

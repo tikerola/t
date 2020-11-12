@@ -3,11 +3,6 @@ import { StyledMenu } from "./Menu.styles";
 import { Link } from "react-router-dom";
 import { BurgerMenuContext } from "../../App";
 
-type IProps = {
-  open: boolean;
-  setOpen: Dispatch<SetStateAction<boolean>>;
-};
-
 export const Menu = (): JSX.Element | null => {
   const { open, setOpen } = useContext(BurgerMenuContext);
 

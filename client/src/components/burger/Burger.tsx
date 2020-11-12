@@ -8,7 +8,11 @@ export const Burger = () => {
   if (setOpen === undefined) return null;
 
   return (
-    <StyledBurger open={open} onClick={() => setOpen((prev) => !prev)}>
+    <StyledBurger
+      data-testid="burger"
+      open={open}
+      onClick={() => setOpen((prev) => !prev)}
+    >
       <div />
       <div />
       <div />

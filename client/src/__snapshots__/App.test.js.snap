@@ -3,11 +3,43 @@
 exports[`<App /> should match snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="sc-bdfBwQ kfetxR"
+    class="sc-hKgILt hGltGz"
   >
+    <button
+      class="sc-gsTCUz eBomCS"
+      data-testid="burger"
+    >
+      <div />
+      <div />
+      <div />
+    </button>
+    <nav
+      class="sc-dlfnbm xgSlL"
+    >
+      <a
+        href="/"
+      >
+        Home
+      </a>
+      <a
+        href="/jackets"
+      >
+        Jackets
+      </a>
+      <a
+        href="/shirts"
+      >
+        Shirts
+      </a>
+      <a
+        href="/accessories"
+      >
+        Accessories
+      </a>
+    </nav>
     <a
       aria-current="page"
-      class="sc-gsTCUz bmYpEQ active"
+      class="sc-eCssSg hmIvYT active"
       href="/"
     >
       <img
@@ -16,43 +48,47 @@ exports[`<App /> should match snapshot 1`] = `
       />
     </a>
     <a
-      class="sc-dlfnbm kzgbDy"
+      class="sc-jSgupP zTMoV"
       href="/jackets"
     >
       Jackets
     </a>
     <a
-      class="sc-dlfnbm kzgbDy"
+      class="sc-jSgupP zTMoV"
       href="/shirts"
     >
       Shirts
     </a>
     <a
-      class="sc-dlfnbm kzgbDy"
+      class="sc-jSgupP zTMoV"
       href="/accessories"
     >
       Accessories
     </a>
   </div>
-  <div>
-    <h1
-      class="sc-hHftDr keOMBR"
-    >
-      Accessory Paradise
-    </h1>
-    <h1
-      class="sc-dmlrTW ifjykb"
-    >
-      Hey there...
-    </h1>
-    <div
-      class="sc-kfzAmx jIGBge"
-    >
-      <p
-        class="sc-fKFyDc cRmNxK"
+  <div
+    class="sc-bdfBwQ keLBL"
+  >
+    <div>
+      <h1
+        class="sc-fKFyDc cooHCw"
       >
-        Browse through. We've got pretty much everything a person might ever need, like jackets, shirts, sunglasses, bracelets and shit...
-      </p>
+        Accessory Paradise
+      </h1>
+      <h1
+        class="sc-bBXqnf ceLRwu"
+      >
+        Hey there...
+      </h1>
+      <div
+        class="sc-iwyYcG kEHNpN"
+      >
+        <p
+          class="sc-cxFLnm jDqlQV"
+        >
+          Browse through. We've got pretty much everything a person might ever need, like jackets, shirts, sunglasses, bracelets and shit...
+        </p>
+      </div>
     </div>
   </div>
 </DocumentFragment>
