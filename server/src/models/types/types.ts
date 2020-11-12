@@ -27,16 +27,6 @@ export interface ManufacturerData {
   response: [ResponseItem] | string;
 }
 
-/* TODO: get rid of hardcoded names and query for possible new manufacturers */
-
-export enum Manufacturers {
-  reps = "reps",
-  derp = "derp",
-  abiblos = "abiplos",
-  xoon = "xoon",
-  nouke = "nouke",
-}
-
 export const availabilityToString = {
   INSTOCK: "IN STOCK",
   OUTOFSTOCK: "OUT OF STOCK",

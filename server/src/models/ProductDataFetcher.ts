@@ -1,11 +1,10 @@
 import axios from "axios";
 import {
-  ProductData,
-  ManufacturerLookupObject,
-  ManufacturerData,
-  Manufacturers,
   availabilityToString,
   Categories,
+  ManufacturerData,
+  ManufacturerLookupObject,
+  ProductData,
 } from "./types/types";
 
 /* Class responsible for fetching and holding the product data of jackets, shirts and accessories */
@@ -72,6 +71,8 @@ export class ProductDataFetcher {
     return data;
   };
 
+  /* Get unique manufacturers from jackets, shirts and accessories */
+
   extractUniqueManufacturers = async (): Promise<void> => {
     for (const jacket of this.jackets) {
       if (!this.manufacturers.includes(jacket.manufacturer))
@@ -91,9 +92,8 @@ export class ProductDataFetcher {
 
   initializeAvailabilityData = async (): Promise<void> => {
     await this.extractUniqueManufacturers();
-    console.log(this.manufacturers);
 
-    for await (const value of Object.values(Manufacturers)) {
+    for (const value of this.manufacturers) {
       try {
         const data = await this.fetchAvailabilityData(value);
 
@@ -118,7 +118,7 @@ export class ProductDataFetcher {
   */
 
   fetchAvailabilityData = async (
-    manufacturer: Manufacturers
+    manufacturer: string
   ): Promise<ManufacturerData | undefined> => {
     let data: ManufacturerData;
 
