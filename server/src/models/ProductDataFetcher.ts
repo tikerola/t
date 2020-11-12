@@ -14,6 +14,7 @@ export class ProductDataFetcher {
   private jackets: ProductData[] = [];
   private shirts: ProductData[] = [];
   private accessories: ProductData[] = [];
+  private manufacturers: string[] = [];
   private availabilityData: ManufacturerLookupObject = {};
   private baseUrl: string = "https://bad-api-assignment.reaktor.com";
 
@@ -71,9 +72,27 @@ export class ProductDataFetcher {
     return data;
   };
 
+  extractUniqueManufacturers = async (): Promise<void> => {
+    for (const jacket of this.jackets) {
+      if (!this.manufacturers.includes(jacket.manufacturer))
+        this.manufacturers.push(jacket.manufacturer);
+    }
+    for (const shirt of this.shirts) {
+      if (!this.manufacturers.includes(shirt.manufacturer))
+        this.manufacturers.push(shirt.manufacturer);
+    }
+    for (const accessory of this.accessories) {
+      if (!this.manufacturers.includes(accessory.manufacturer))
+        this.manufacturers.push(accessory.manufacturer);
+    }
+  };
+
   /* Populates availability data */
 
   initializeAvailabilityData = async (): Promise<void> => {
+    await this.extractUniqueManufacturers();
+    console.log(this.manufacturers);
+
     for await (const value of Object.values(Manufacturers)) {
       try {
         const data = await this.fetchAvailabilityData(value);
