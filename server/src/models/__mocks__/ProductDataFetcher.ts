@@ -1,5 +1,5 @@
 import {
-  ManufacturerLookupObject,
+  AvailabilityLookupObject,
   ProductData,
   availabilityToString,
 } from "../types/types";
@@ -77,7 +77,7 @@ export class ProductDataFetcher {
     },
   ];
 
-  private availabilityData: ManufacturerLookupObject = {
+  private availabilityData: AvailabilityLookupObject = {
     "1": {
       availability: "INSTOCK",
       manufacturer: "derp",
@@ -104,7 +104,7 @@ export class ProductDataFetcher {
     return this.accessories;
   };
 
-  getAvailabilityData = (): ManufacturerLookupObject => {
+  getAvailabilityData = (): AvailabilityLookupObject => {
     return this.availabilityData;
   };
 

@@ -1,4 +1,4 @@
-import express, { Request, Response } from "express";
+import express from "express";
 import { accessoryRouter } from "./routes/accessories";
 import { jacketsRouter } from "./routes/jackets";
 import { shirtsRouter } from "./routes/shirts";

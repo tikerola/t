@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Categories, Manufacturers } from "../types/types";
+import { Categories } from "../types/types";
 jest.mock("axios");
 const { ProductDataFetcher } = jest.requireActual("../ProductDataFetcher");
 
@@ -166,7 +166,7 @@ describe("ProductDataFetcher", () => {
     (axios.get as jest.Mock).mockResolvedValue(availabilityResponse1);
 
     const availabilityData = await productDataFetcher.fetchAvailabilityData(
-      Manufacturers.reps
+      "reps"
     );
 
     expect(axios.get).toHaveBeenCalledWith(
@@ -176,6 +176,22 @@ describe("ProductDataFetcher", () => {
     expect(availabilityData).toEqual(availabilityResponse1.data);
   });
 
+  it("should test method fetchAvailabilityData when fetch error occurs", async () => {
+    const productDataFetcher = new ProductDataFetcher();
+    (axios.get as jest.Mock).mockImplementation(() => {
+      throw Error;
+    });
+
+    const availabilityData = await productDataFetcher.fetchAvailabilityData(
+      "tellmelocation"
+    );
+
+    expect(availabilityData).toEqual({
+      code: 404,
+      response: "Not Found Error",
+    });
+  });
+
   it("should call recursively fetchAvailabilityData twice when first request returns '[]'", async () => {
     const productDataFetcher = new ProductDataFetcher();
     (axios.get as jest.Mock)
@@ -183,7 +199,7 @@ describe("ProductDataFetcher", () => {
       .mockResolvedValueOnce(availabilityResponse1);
 
     const availabilityData1 = await productDataFetcher.fetchAvailabilityData(
-      Manufacturers.reps
+      "reps"
     );
 
     expect(axios.get).toHaveBeenCalledWith(
@@ -193,8 +209,15 @@ describe("ProductDataFetcher", () => {
     expect(availabilityData1).toEqual(availabilityResponse1.data);
   });
 
-  it("should test method initializeAvailabilityData and populateAvailability", async () => {
+  it("should test method initializeAvailabilityData, extractManufacturerData and populateAvailability", async () => {
     const productDataFetcher = new ProductDataFetcher();
+
+    (axios.get as jest.Mock)
+      .mockResolvedValueOnce(jResponse)
+      .mockResolvedValueOnce(sResponse)
+      .mockResolvedValueOnce(aResponse);
+    await productDataFetcher.initializeProductData();
+
     (axios.get as jest.Mock)
       .mockResolvedValueOnce(availabilityResponse1)
       .mockResolvedValueOnce(availabilityResponse2)
@@ -204,6 +227,13 @@ describe("ProductDataFetcher", () => {
 
     await productDataFetcher.initializeAvailabilityData();
     const data = productDataFetcher.getAvailabilityData();
+
+    expect(productDataFetcher.getManufacturers()).toEqual([
+      "reps",
+      "derp",
+      "abiplos",
+      "xoon",
+    ]);
 
     expect(data).toEqual({
       F33561DE3A864F951A: {
@@ -223,10 +253,6 @@ describe("ProductDataFetcher", () => {
       "30D2D9F3851621D5A3CD9": {
         availability: "IN STOCK",
         manufacturer: "xoon",
-      },
-      "76EC839DA3EF71CE0F936": {
-        availability: "IN STOCK",
-        manufacturer: "nouke",
       },
     });
 

@@ -7,7 +7,7 @@ export interface ProductData {
   availability?: string;
 }
 
-export interface ManufacturerLookupObject {
+export interface AvailabilityLookupObject {
   [id: string]: { availability: string; manufacturer: string };
 }
 

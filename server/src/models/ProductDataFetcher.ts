@@ -3,7 +3,7 @@ import {
   availabilityToString,
   Categories,
   ManufacturerData,
-  ManufacturerLookupObject,
+  AvailabilityLookupObject,
   ProductData,
 } from "./types/types";
 
@@ -14,7 +14,7 @@ export class ProductDataFetcher {
   private shirts: ProductData[] = [];
   private accessories: ProductData[] = [];
   private manufacturers: string[] = [];
-  private availabilityData: ManufacturerLookupObject = {};
+  private availabilityData: AvailabilityLookupObject = {};
   private baseUrl: string = "https://bad-api-assignment.reaktor.com";
 
   getJackets = (): ProductData[] => {
@@ -26,7 +26,10 @@ export class ProductDataFetcher {
   getAccessories = (): ProductData[] => {
     return this.accessories;
   };
-  getAvailabilityData = (): ManufacturerLookupObject => {
+  getManufacturers = (): string[] => {
+    return this.manufacturers;
+  };
+  getAvailabilityData = (): AvailabilityLookupObject => {
     return this.availabilityData;
   };
 
@@ -114,25 +117,30 @@ export class ProductDataFetcher {
   /* 
     Api call for availability data.
     'Build in api' -error seems to just result in 200 code and an string '[]'.
-    Tackle that by recursively calling function until success  
+    Tackling that by recursively calling function until success or failure 3 times 
+    In case of failure, products get just an empty string as availability
   */
 
   fetchAvailabilityData = async (
-    manufacturer: string
-  ): Promise<ManufacturerData | undefined> => {
+    manufacturer: string,
+    retries = 2
+  ): Promise<ManufacturerData> => {
     let data: ManufacturerData;
 
     try {
       const response = await axios.get<ManufacturerData>(
         `${this.baseUrl}/availability/${manufacturer}`
-        /* , { headers: { "x-force-error-mode": "all" } } */
+        /* { headers: { "x-force-error-mode": "all" } } */
       );
       data = response.data;
-      if (data?.response === "[]") {
-        return this.fetchAvailabilityData(manufacturer);
+      if (data?.response === "[]" && retries > 0) {
+        return this.fetchAvailabilityData(manufacturer, retries - 1);
       }
     } catch (error) {
-      throw error;
+      return {
+        code: 404,
+        response: "Not Found Error",
+      };
     }
     return data;
   };
