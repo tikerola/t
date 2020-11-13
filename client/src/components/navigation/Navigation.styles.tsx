@@ -19,9 +19,12 @@ export const NavigationContainer = styled.div`
 `;
 
 export const ImageContainer = styled(NavLink)`
-  width: 40px;
+  width: 50px;
   margin-left: 30px;
   margin-right: 100px;
+
+  display: flex;
+  align-items: center;
 
   @media (max-width: ${({ theme }) => theme.smallPad}) {
     display: none;

@@ -1,7 +1,7 @@
-import React, { Dispatch, SetStateAction, useContext } from "react";
-import { StyledMenu } from "./Menu.styles";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { BurgerMenuContext } from "../../App";
+import { StyledMenu } from "./Menu.styles";
 
 export const Menu = (): JSX.Element | null => {
   const { open, setOpen } = useContext(BurgerMenuContext);

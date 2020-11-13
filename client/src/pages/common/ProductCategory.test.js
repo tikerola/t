@@ -2,7 +2,6 @@ import React from "react";
 import { render, fireEvent } from "../../test-utils";
 import { ProductCategory } from "./ProductCategory";
 import userEvent from "@testing-library/user-event";
-import { PRODUCTS_PER_PAGE } from "./constants";
 
 jest.mock("./constants", () => ({
   PRODUCTS_PER_PAGE: 2,

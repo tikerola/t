@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../../assets/iceberg.svg";
+import Logo from "../../assets/globe.svg";
 import { Burger } from "../burger/Burger";
 import { Menu } from "../menu/Menu";
 import {

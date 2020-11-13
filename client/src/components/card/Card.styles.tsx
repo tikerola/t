@@ -7,7 +7,7 @@ export const CardContainer = styled.div`
   padding: 0px;
   margin: 15px;
   display: inline-block;
-  width: 220px;
+  width: ${({ theme }) => theme.card.width};
   height: 150px;
   background-color: rgba(187, 187, 187, 0.85);
   position: relative;

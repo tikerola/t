@@ -5,6 +5,9 @@ declare module "styled-components" {
     primaryColor: string;
     secondaryColor: string;
     titleColor: string;
+    card: {
+      width: string;
+    };
     navigation: {
       height: string;
       primaryColor: string;
@@ -31,6 +34,9 @@ export const lightTheme: DefaultTheme = {
   primaryColor: "#333",
   secondaryColor: "#666",
   titleColor: "#222",
+  card: {
+    width: "220px",
+  },
   navigation: {
     height: "60px",
     primaryColor: "rgba(0,0,0,0.7)",
@@ -46,31 +52,6 @@ export const lightTheme: DefaultTheme = {
     cheap: "green",
     moderate: "seagreen",
     expensive: "lightseagreen",
-  },
-  mobile: "576px",
-  smallPad: "700px",
-  pad: "900px",
-};
-
-export const darkTheme: DefaultTheme = {
-  primaryColor: "#fff",
-  secondaryColor: "#cacaca",
-  titleColor: "#222",
-  navigation: {
-    height: "60px",
-    primaryColor: "#000",
-    secondaryColor: "#999",
-    burgerColor: "#bbb",
-    menuBgColor: "black",
-  },
-  button: {
-    bgColor: "#5f5f5f",
-    bgHoverColor: "#7f7f7f",
-  },
-  tag: {
-    cheap: "green",
-    moderate: "orange",
-    expensive: "seagreen",
   },
   mobile: "576px",
   smallPad: "700px",

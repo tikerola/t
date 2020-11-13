@@ -3,33 +3,6 @@ import * as hooks from "../../hooks/useRequestData";
 import { render } from "../../test-utils";
 import { Jackets } from "./Jackets";
 
-const productData = [
-  {
-    id: "f33561de3a864f951a",
-    type: "jackets",
-    name: "EWHHOP ROOM",
-    color: ["blue"],
-    price: 52,
-    manufacturer: "reps",
-  },
-  {
-    id: "0e4772c827c4296592fbd",
-    type: "jackets",
-    name: "WEERLEP METROPOLIS RAPTOR",
-    color: ["black"],
-    price: 98,
-    manufacturer: "reps",
-  },
-  {
-    id: "6d39a08b3bcae88a67",
-    type: "jackets",
-    name: "DERWEER TYRANNUS BANG",
-    color: ["purple"],
-    price: 15,
-    manufacturer: "abiplos",
-  },
-];
-
 describe("<Jackets/>", () => {
   it("should match snapshot", async () => {
     const component = render(<Jackets />);

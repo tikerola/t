@@ -36,7 +36,7 @@ exports[`<ProductCategory/> should match snapshot 1`] = `
       class="sc-eCssSg duHnSf"
     >
       <div
-        class="sc-hBEYos mHOcC"
+        class="sc-fodVxV ogTwW"
       >
         <div
           class="sc-jSgupP dyMIlS"
@@ -49,11 +49,11 @@ exports[`<ProductCategory/> should match snapshot 1`] = `
           reps
         </div>
         <div
-          class="sc-pFZIQ kzHLGl"
+          class="sc-jrAGrp iHWjER"
         >
           Available colors: 
           <div
-            class="sc-jrAGrp iyIsys"
+            class="sc-kEjbxe esxEnr"
             color="blue"
             data-testid="color-button"
           />
@@ -62,13 +62,25 @@ exports[`<ProductCategory/> should match snapshot 1`] = `
           />
         </div>
         <div
-          class="sc-fubCfw bDUSrg"
+          class="sc-fubCfw gjcYhW"
+        >
+          <svg
+            fill="blue"
+            height="25"
+            stroke="black"
+            width="25"
+          >
+            jacket.svg
+          </svg>
+        </div>
+        <div
+          class="sc-pFZIQ gAuEGn"
         >
           $52
         </div>
       </div>
       <div
-        class="sc-hBEYos mHOcC"
+        class="sc-fodVxV ogTwW"
       >
         <div
           class="sc-jSgupP dyMIlS"
@@ -81,11 +93,11 @@ exports[`<ProductCategory/> should match snapshot 1`] = `
           reps
         </div>
         <div
-          class="sc-pFZIQ kzHLGl"
+          class="sc-jrAGrp iHWjER"
         >
           Available colors: 
           <div
-            class="sc-jrAGrp fRONuR"
+            class="sc-kEjbxe fWXDwe"
             color="black"
             data-testid="color-button"
           />
@@ -94,13 +106,25 @@ exports[`<ProductCategory/> should match snapshot 1`] = `
           />
         </div>
         <div
-          class="sc-fubCfw fnFdVi"
+          class="sc-fubCfw gjcYhW"
+        >
+          <svg
+            fill="black"
+            height="25"
+            stroke="black"
+            width="25"
+          >
+            jacket.svg
+          </svg>
+        </div>
+        <div
+          class="sc-pFZIQ giheCd"
         >
           $98
         </div>
       </div>
       <div
-        class="sc-hBEYos mHOcC"
+        class="sc-fodVxV ogTwW"
       >
         <div
           class="sc-jSgupP dyMIlS"
@@ -113,11 +137,11 @@ exports[`<ProductCategory/> should match snapshot 1`] = `
           abiplos
         </div>
         <div
-          class="sc-pFZIQ kzHLGl"
+          class="sc-jrAGrp iHWjER"
         >
           Available colors: 
           <div
-            class="sc-jrAGrp efDoro"
+            class="sc-kEjbxe bchCzr"
             color="purple"
             data-testid="color-button"
           />
@@ -126,30 +150,42 @@ exports[`<ProductCategory/> should match snapshot 1`] = `
           />
         </div>
         <div
-          class="sc-fubCfw iQukNH"
+          class="sc-fubCfw gjcYhW"
+        >
+          <svg
+            fill="purple"
+            height="25"
+            stroke="black"
+            width="25"
+          >
+            jacket.svg
+          </svg>
+        </div>
+        <div
+          class="sc-pFZIQ fvdQCk"
         >
           $15
         </div>
       </div>
     </div>
     <div
-      class="sc-kEjbxe jJfbkl"
+      class="sc-iqHYGH jZJuQw"
     >
       <div
-        class="sc-iqHYGH kHTKpj"
+        class="sc-crrsfI hSgFJa"
       >
         <div
-          class="sc-crrsfI jimuXQ"
+          class="sc-dQppl ecbgqy"
         >
           &lt;&lt; Prev
         </div>
         <div
-          class="sc-dQppl iGUJzW"
+          class="sc-bqyKva jnhmzh"
         >
           1 - 2 / 3
         </div>
         <div
-          class="sc-crrsfI jimuXQ"
+          class="sc-dQppl ecbgqy"
         >
           Next &gt;&gt;
         </div>

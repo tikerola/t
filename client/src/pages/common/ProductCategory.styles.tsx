@@ -81,6 +81,14 @@ export const Availability = styled.div`
   text-align: center;
 `;
 
+export const ItemImageContainer = styled.div`
+  width: 25px;
+  height: auto;
+  position: relative;
+  top: -5px;
+  left: calc(${({ theme }) => theme.card.width} - 35px);
+`;
+
 export const PriceTag = styled.div<Props>`
   width: 80px;
   height: 20px;

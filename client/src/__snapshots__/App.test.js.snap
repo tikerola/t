@@ -39,12 +39,12 @@ exports[`<App /> should match snapshot 1`] = `
     </nav>
     <a
       aria-current="page"
-      class="sc-eCssSg hmIvYT active"
+      class="sc-eCssSg eRyLcw active"
       href="/"
     >
       <img
         alt="logo"
-        src="iceberg.svg"
+        src="globe.svg"
       />
     </a>
     <a
@@ -71,20 +71,20 @@ exports[`<App /> should match snapshot 1`] = `
   >
     <div>
       <h1
-        class="sc-fKFyDc cooHCw"
+        class="sc-bBXqnf farLYQ"
       >
         Accessory Paradise
       </h1>
       <h1
-        class="sc-bBXqnf ceLRwu"
+        class="sc-iwyYcG juxsqh"
       >
         Hey there...
       </h1>
       <div
-        class="sc-iwyYcG kEHNpN"
+        class="sc-cxFLnm LIiWR"
       >
         <p
-          class="sc-cxFLnm jDqlQV"
+          class="sc-lmoMRL hYJjrK"
         >
           Browse through. We've got pretty much everything a person might ever need, like jackets, shirts, sunglasses, bracelets and shit...
         </p>
