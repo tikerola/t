@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled, { keyframes } from "styled-components";
+import { ReactComponent as Hat } from "../../assets/hat.svg";
 
 export const Title = styled.h1`
   margin-top: 20px;
@@ -52,6 +53,14 @@ export const CardContainer = styled.div`
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
+  position: relative;
+`;
+
+export const CustomHat = styled(Hat)`
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  transform: rotate(29deg);
 `;
 
 export const CardName = styled.div`

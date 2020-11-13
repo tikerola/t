@@ -10,6 +10,7 @@ import {
   ColorContainer,
   Availability,
   ItemImageContainer,
+  CustomHat,
 } from "./ProductCategory.styles";
 
 import { ReactComponent as JacketImage } from "../../assets/jacket.svg";
@@ -46,6 +47,7 @@ export const RenderProductData = ({ productData }: IProps): JSX.Element => (
       (item: Item): JSX.Element => {
         return (
           <Card key={item.id}>
+            <CustomHat width="40" height="40" />
             <CardName>{item.name}</CardName>
             <Manufacturer>{item.manufacturer}</Manufacturer>
             <ColorContainer>
