@@ -17,15 +17,12 @@ export class ProductDataFetcher {
   private availabilityData: AvailabilityLookupObject = {};
   private baseUrl: string = "https://bad-api-assignment.reaktor.com";
 
-  getJackets = (): ProductData[] => {
-    return this.jackets;
+  getItems = (category: string): ProductData[] => {
+    if (category === Categories.jackets) return this.jackets;
+    else if (category === Categories.shirts) return this.shirts;
+    else return this.accessories;
   };
-  getShirts = (): ProductData[] => {
-    return this.shirts;
-  };
-  getAccessories = (): ProductData[] => {
-    return this.accessories;
-  };
+
   getManufacturers = (): string[] => {
     return this.manufacturers;
   };

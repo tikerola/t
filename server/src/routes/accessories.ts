@@ -1,37 +1,12 @@
-import express, { Request, Response } from "express";
-import { productDataFetcher } from "../..";
-import { itemIndexesFromPageNumber } from "./common/itemIndexesFromPageNumber";
+import express from "express";
+import { Categories } from "../models/types/types";
+import { productsController } from "./common/productsController";
 
 const router = express.Router();
 
-router.get("/products/accessories/:page", (req: Request, res: Response) => {
-  const { page } = req.params;
-  const { filter, ppp: productsPerPage } = req.query as {
-    filter: string;
-    ppp: string;
-  };
-
-  const filteredAccessories = filter
-    ? productDataFetcher
-        .getAccessories()
-        .filter((accessory) =>
-          accessory.name.toLowerCase().startsWith(filter.toLowerCase())
-        )
-    : productDataFetcher.getAccessories();
-
-  const { start, end } = itemIndexesFromPageNumber(
-    parseInt(page),
-    parseInt(productsPerPage)
-  );
-
-  const accessoriesPopulatedWithAvailability = productDataFetcher.populateAvailability(
-    filteredAccessories.slice(start, end)
-  );
-
-  res.status(200).send({
-    items: accessoriesPopulatedWithAvailability,
-    numOfItems: filteredAccessories.length,
-  });
-});
+router.get(
+  "/products/accessories/:page",
+  productsController(Categories.accessories)
+);
 
 export { router as accessoryRouter };

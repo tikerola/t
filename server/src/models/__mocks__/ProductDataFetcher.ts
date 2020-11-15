@@ -92,16 +92,10 @@ export class ProductDataFetcher {
     },
   };
 
-  getJackets = (): ProductData[] => {
-    return this.jackets;
-  };
-
-  getShirts = (): ProductData[] => {
-    return this.shirts;
-  };
-
-  getAccessories = (): ProductData[] => {
-    return this.accessories;
+  getItems = (category: string): ProductData[] => {
+    if (category === "jackets") return this.jackets;
+    else if (category === "shirts") return this.shirts;
+    else return this.accessories;
   };
 
   getAvailabilityData = (): AvailabilityLookupObject => {

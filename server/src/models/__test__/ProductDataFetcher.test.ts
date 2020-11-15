@@ -146,15 +146,15 @@ describe("ProductDataFetcher", () => {
 
     (axios.get as jest.Mock).mockResolvedValue(jResponse);
     await productDataFetcher.initializeProductData();
-    const jackets = productDataFetcher.getJackets();
+    const jackets = productDataFetcher.getItems("jackets");
 
     (axios.get as jest.Mock).mockResolvedValue(sResponse);
     await productDataFetcher.initializeProductData();
-    const shirts = productDataFetcher.getShirts();
+    const shirts = productDataFetcher.getItems("shirts");
 
     (axios.get as jest.Mock).mockResolvedValue(aResponse);
     await productDataFetcher.initializeProductData();
-    const accessories = productDataFetcher.getAccessories();
+    const accessories = productDataFetcher.getItems("accessories");
 
     expect(jackets).toEqual(jResponse.data);
     expect(shirts).toEqual(sResponse.data);
