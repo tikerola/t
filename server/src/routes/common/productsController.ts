@@ -1,4 +1,4 @@
-import express, { Request, Response } from "express";
+import { Request, Response } from "express";
 import { productDataFetcher } from "../../..";
 import { Categories } from "../../models/types/types";
 import { itemIndexesFromPageNumber } from "./itemIndexesFromPageNumber";

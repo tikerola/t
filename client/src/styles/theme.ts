@@ -20,9 +20,12 @@ declare module "styled-components" {
       bgHoverColor: string;
     };
     tag: {
-      cheap: string;
-      moderate: string;
-      expensive: string;
+      cheap: number;
+      moderate: number;
+      expensive: number;
+      cheapColor: string;
+      moderateColor: string;
+      expensiveColor: string;
     };
     mobile: string;
     smallPad: string;
@@ -49,9 +52,12 @@ export const lightTheme: DefaultTheme = {
     bgHoverColor: "#7f7f7f",
   },
   tag: {
-    cheap: "green",
-    moderate: "seagreen",
-    expensive: "lightseagreen",
+    cheap: 30,
+    moderate: 60,
+    expensive: 100,
+    cheapColor: "green",
+    moderateColor: "seagreen",
+    expensiveColor: "lightseagreen",
   },
   mobile: "576px",
   smallPad: "700px",

@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes, ThemeConsumer } from "styled-components";
 import { ReactComponent as Hat } from "../../assets/hat.svg";
+import { ReactComponent as Decoration } from "../../assets/tree.svg";
 
 export const Title = styled.h1`
   margin-top: 20px;
@@ -58,9 +59,17 @@ export const CardContainer = styled.div`
 
 export const CustomHat = styled(Hat)`
   position: absolute;
-  top: -20px;
-  right: -20px;
-  transform: rotate(29deg);
+  top: -27px;
+  right: -27px;
+  transform: rotate(30deg);
+`;
+
+export const Tree = styled(Decoration)`
+  position: absolute;
+  bottom: -3px;
+  left: 25px;
+  z-index: 1;
+  filter: drop-shadow(5px 5px 4px black);
 `;
 
 export const CardName = styled.div`
@@ -102,11 +111,11 @@ export const PriceTag = styled.div<Props>`
   width: 80px;
   height: 20px;
   background-color: ${(props) =>
-    props.price < 30
-      ? props.theme.tag.cheap
-      : props.price < 60
-      ? props.theme.tag.moderate
-      : props.theme.tag.expensive};
+    props.price < props.theme.tag.cheap
+      ? props.theme.tag.cheapColor
+      : props.price < props.theme.tag.moderate
+      ? props.theme.tag.moderateColor
+      : props.theme.tag.expensiveColor};
   margin-top: 10px;
   color: white;
   display: flex;
