@@ -57,7 +57,7 @@ export const lightTheme: DefaultTheme = {
     expensive: 100,
     cheapColor: "#f2404e",
     moderateColor: "#b5bb73",
-    expensiveColor: "#ebba28",
+    expensiveColor: "lightseagreen",
   },
   mobile: "576px",
   smallPad: "700px",
