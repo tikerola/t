@@ -62,6 +62,7 @@ export class ProductDataFetcher {
 
       data = response.data;
     } catch (error) {
+      // In case of error, front-end get's an empty product data array
       console.log(error);
     }
     return data;
@@ -92,6 +93,7 @@ export class ProductDataFetcher {
     for (const value of this.manufacturers) {
       const data = await this.fetchAvailabilityData(value);
 
+      // if we have data.response which is of type not-string (!'[]' or !'Not Found Error')
       if (data?.response.length && typeof data.response !== "string") {
         for (const obj of data.response) {
           this.availabilityData[obj.id] = {
