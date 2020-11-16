@@ -17,7 +17,7 @@ export class ProductDataFetcher {
   private availabilityData: AvailabilityLookupObject = {};
   private baseUrl: string = "https://bad-api-assignment.reaktor.com";
 
-  getItems = (category: string): ProductData[] => {
+  getItems = (category: Categories): ProductData[] => {
     if (category === Categories.jackets) return this.jackets;
     else if (category === Categories.shirts) return this.shirts;
     else return this.accessories;
@@ -40,19 +40,15 @@ export class ProductDataFetcher {
   /* Populates jackets, shirts and accessories */
 
   initializeProductData = async (): Promise<void> => {
-    try {
-      this.jackets = (await this.fetchProductData(
-        Categories.jackets
-      )) as ProductData[];
-      this.shirts = (await this.fetchProductData(
-        Categories.shirts
-      )) as ProductData[];
-      this.accessories = (await this.fetchProductData(
-        Categories.accessories
-      )) as ProductData[];
-    } catch (error) {
-      throw error;
-    }
+    this.jackets = (await this.fetchProductData(
+      Categories.jackets
+    )) as ProductData[];
+    this.shirts = (await this.fetchProductData(
+      Categories.shirts
+    )) as ProductData[];
+    this.accessories = (await this.fetchProductData(
+      Categories.accessories
+    )) as ProductData[];
   };
 
   /* Product Api called and result returned */
@@ -94,19 +90,15 @@ export class ProductDataFetcher {
     await this.extractUniqueManufacturers();
 
     for (const value of this.manufacturers) {
-      try {
-        const data = await this.fetchAvailabilityData(value);
+      const data = await this.fetchAvailabilityData(value);
 
-        if (data?.response.length && typeof data.response !== "string") {
-          for (const obj of data.response) {
-            this.availabilityData[obj.id] = {
-              availability: this.extractAvailability(obj.DATAPAYLOAD),
-              manufacturer: value,
-            };
-          }
+      if (data?.response.length && typeof data.response !== "string") {
+        for (const obj of data.response) {
+          this.availabilityData[obj.id] = {
+            availability: this.extractAvailability(obj.DATAPAYLOAD),
+            manufacturer: value,
+          };
         }
-      } catch (error) {
-        console.log("Something went wrong when fetching availability data");
       }
     }
   };
