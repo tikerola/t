@@ -93,8 +93,9 @@ export class ProductDataFetcher {
     for (const value of this.manufacturers) {
       const data = await this.fetchAvailabilityData(value);
 
-      // if we have data.response which is of type not-string (!'[]' or !'Not Found Error')
-      if (data?.response.length && typeof data.response !== "string") {
+      // if we have data.response which is of type string ('[]' or 'Not Found Error'), skip over loop
+
+      if (data?.response.length && data.response instanceof Array) {
         for (const obj of data.response) {
           this.availabilityData[obj.id] = {
             availability: this.extractAvailability(obj.DATAPAYLOAD),
