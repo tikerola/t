@@ -26,6 +26,7 @@ export class ProductDataFetcher {
   getManufacturers = (): string[] => {
     return this.manufacturers;
   };
+
   getAvailabilityData = (): AvailabilityLookupObject => {
     return this.availabilityData;
   };
@@ -40,15 +41,9 @@ export class ProductDataFetcher {
   /* Populates jackets, shirts and accessories */
 
   initializeProductData = async (): Promise<void> => {
-    this.jackets = (await this.fetchProductData(
-      Categories.jackets
-    )) as ProductData[];
-    this.shirts = (await this.fetchProductData(
-      Categories.shirts
-    )) as ProductData[];
-    this.accessories = (await this.fetchProductData(
-      Categories.accessories
-    )) as ProductData[];
+    this.jackets = await this.fetchProductData(Categories.jackets);
+    this.shirts = await this.fetchProductData(Categories.shirts);
+    this.accessories = await this.fetchProductData(Categories.accessories);
   };
 
   /* Product Api called and result returned */
