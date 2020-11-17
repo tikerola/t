@@ -12,7 +12,3 @@ export const CardContainer = styled.div`
   background-color: rgba(187, 187, 187, 0.85);
   position: relative;
 `;
-
-export const CardName = styled.p`
-  margin-bottom: 10px;
-`;
