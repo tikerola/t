@@ -65,7 +65,7 @@ export class ProductDataFetcher {
 
   /* Get unique manufacturers from jackets, shirts and accessories */
 
-  extractUniqueManufacturers = async (): Promise<void> => {
+  extractUniqueManufacturers = (): void => {
     for (const jacket of this.jackets) {
       if (!this.manufacturers.includes(jacket.manufacturer))
         this.manufacturers.push(jacket.manufacturer);
@@ -83,7 +83,7 @@ export class ProductDataFetcher {
   /* Populates availability data */
 
   initializeAvailabilityData = async (): Promise<void> => {
-    await this.extractUniqueManufacturers();
+    this.extractUniqueManufacturers();
 
     for (const value of this.manufacturers) {
       const data = await this.fetchAvailabilityData(value);
