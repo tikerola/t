@@ -24,7 +24,7 @@
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "styled-components": "^5.2.1",
-    "typescript": "^4.0.3",
+    "typescript": "^4.0.5",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
@@ -56,5 +56,5 @@
     "@types/styled-components": "^5.1.4",
     "react-test-renderer": "^17.0.1"
   },
-  "proxy": "http://localhost:3001"
+  "proxy": "http://host.docker.internal:3001"
 }
