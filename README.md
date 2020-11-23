@@ -4,9 +4,12 @@ Accessory Paradise
 
     Where can you find it?: https://serene-river-11472.herokuapp.com/
 
-    How can you start the development version?:
+    How can you start the development version with Docker?:
 
-    - open terminal
-    - copy to a terminal: docker run --name server --rm -d -p 3001:3001 tkerola/rserver
-    - copy to a terminal: docker run --name client --rm -d -p 3000:3000 tkerola/rclient
-    - open browser and go to localhost:3000
+    - clone repository
+    - open terminal and cd into cloned base-directory
+    - write: docker-compose up -d
+    - after loading: go to localhost:3000 with browser
+
+
+    ...after you're done, write to terminal: docker-compose down
