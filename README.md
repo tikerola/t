@@ -6,9 +6,7 @@ Accessory Paradise
 
     How can you start the development version?:
 
-    -  clone repository
-    -  go to server directory and install dependencies by writing "npm i" or "yarn"
-    -  after loading, write "npm/yarn start"
-    -  go to client directory and install dependencies by writing "npm i" or "yarn"
-    -  after loading, write "npm/yarn start"
-    -  open browser and go to address: localhost:3000
+    - open terminal
+    - copy to a terminal: docker run --name server --rm -d -p 3001:3001 tkerola/rserver
+    - copy to a terminal: docker run --name client --rm -d -p 3000:3000 tkerola/rclient
+    - open browser and go to localhost:3000
